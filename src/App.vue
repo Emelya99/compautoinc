@@ -1,32 +1,36 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+  <div class="page">
+    <div class="wrapper">
+
+      <!-- Header -->
+      <com-header />
+
+      <main>
+        <router-view />
+      </main>
+
+    </div>
+
+    <!-- Footer -->
+    <com-footer />
+
   </div>
 </template>
 
+<script>
+import ComHeader from '@/components/header/Header';
+import ComFooter from '@/components/footer/Footer';
+
+export default {
+  name: 'ComApp',
+  components: {
+    ComHeader,
+    ComFooter
+  },
+}
+
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import "@/assets/style/main.scss";
 </style>

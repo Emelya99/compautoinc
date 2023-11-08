@@ -1,0 +1,50 @@
+<template>
+    <div class="heading-container">
+        <h2 class="title default">{{ titleContent }}</h2>
+        <p class="text" v-if="textContent">{{ textContent }}</p>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'ComHeading',
+    props: {
+        titleContent: {
+            type: String,
+            required: true,
+        },
+        textContent: {
+            type: String,
+            required: false,
+        }
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+    .heading-container {
+        position: relative;
+        padding-left: 12px;
+        @include margin-bottom(40px,25px,20px);
+        &::after {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 38px;
+            background: $accent-color;
+            @media(max-width: $tablet) {
+                height: 34px;
+            }
+            @media(max-width: $mobile) {
+                height: 26px;
+            }
+        }
+    }
+    @media(min-width: 1025px) {
+        .text {
+        max-width: 471px;
+        }
+    }
+</style>

@@ -1,0 +1,30 @@
+$main-font: 'Space Grotesk', sans-serif;
+$main-font-size: 18px;
+
+
+$main-color: #171717;
+$secondary-color: rgba(23, 23, 23, 0.85);
+$text-color: rgba(23, 23, 23, 0.50);
+$grey-color: #686868;
+$accent-color: #67AD5B;
+$link-color: rgba(23, 23, 23, 0.65);
+$white-color: #FFF;
+$main-bg: #F7F7F7;
+$input-bg: rgba(76, 175, 80, 0.05);
+
+
+$base-transition: all .4s cubic-bezier(.2,.57,.36,.8);
+
+
+$tablet: 1024px;
+$mobile: 767px;
+
+@mixin margin-bottom($mb,$mb-tablet,$mb-mobile){
+    margin-bottom: $mb;
+    @media(max-width:$tablet){
+        margin-bottom: $mb-tablet;
+    }
+    @media(max-width:$mobile){
+        margin-bottom: $mb-mobile;
+    }
+}
