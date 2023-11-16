@@ -1,0 +1,50 @@
+.default-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 208px;
+    height: 52px;
+    padding: 8px;
+    border: 1px solid $accent-color;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    svg {
+        margin-left: 10px;
+        font-size: 24px;
+    }
+    &.background {
+        color: $white-color;
+        background: $accent-color;
+        &:hover,
+        &:focus {
+            color: $accent-color;
+            background: $white-color;
+        }
+    }
+    &.invert-background {
+        color: $accent-color;
+        background: $white-color;
+        &:hover,
+        &:focus {
+            color: $white-color;
+            background: $accent-color;
+        }
+    }
+    @media(max-width: $tablet) {
+        width: 178px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    @media(max-width: 640px) {
+        width: 131px;
+        height: 34px;
+        font-size: 14px;
+        line-height: 18px;
+        svg {
+            margin-left: 0;
+        }
+    }
+}

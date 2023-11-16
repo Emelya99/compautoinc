@@ -25,7 +25,6 @@ export default {
     .heading-container {
         position: relative;
         padding-left: 12px;
-        @include margin-bottom(40px,25px,20px);
         &::after {
             position: absolute;
             content: '';
@@ -42,9 +41,24 @@ export default {
             }
         }
     }
-    @media(min-width: 1025px) {
-        .text {
+    .text {
         max-width: 471px;
+    }
+
+    @media(max-width: $tablet) {
+        .title {
+            margin-bottom: 5px;
+        }
+        .text {
+            max-width: 310px;
+            font-size: 14px;
+        }
+    }
+    @media(max-width: 580px) {
+        .text {
+            max-width: initial;
+            font-size: 12px;
+            line-height: 15px;
         }
     }
 </style>

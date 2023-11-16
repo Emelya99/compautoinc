@@ -1,7 +1,3 @@
-.section {
-    @include margin-bottom(100px,80px,60px);
-}
-
 .page {
     main {
         padding-bottom: 120px;
@@ -10,6 +6,38 @@
         }
         @media(max-width: $mobile) {
             padding-bottom: 60px;
+        }
+    }
+}
+
+.section {
+    @include margin-bottom(100px,80px,60px);
+}
+
+.top-part-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include margin-bottom(40px,25px,20px);
+    & > .left-part {
+        flex: 1;
+        padding-right: 16px;
+    }
+    @media(max-width: 640px) {
+        align-items: flex-start;
+    }
+}
+
+.grid-list {
+    display: grid;
+    &.style-1 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        @media(max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media(max-width: 640px) {
+            grid-template-columns: 1fr;
         }
     }
 }
@@ -34,31 +62,36 @@
 .text {
     margin: 0;
 }
-
-.default-btn {
-    display: inline-block;
-    padding: 14px 30px;
-    border: 1px solid $accent-color;
-    border-radius: 10px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    &.background {
-        color: $white-color;
-        background: $accent-color;
-        &:hover,
-        &:focus {
-            color: $accent-color;
-            background: $white-color;
-        }
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ellipsis-multiply {
+    display: -webkit-box !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    &.one {
+        -webkit-line-clamp: 1;
     }
-    &.invert-background {
-        color: $accent-color;
-        background: $white-color;
-        &:hover,
-        &:focus {
-            color: $white-color;
-            background: $accent-color;
-        }
+    &.three {
+        -webkit-line-clamp: 3;
+    }
+    &.four {
+        -webkit-line-clamp: 4;
+    }
+    &.five {
+        -webkit-line-clamp: 5;
+    }
+}
+
+.img-container {
+    display: block;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }

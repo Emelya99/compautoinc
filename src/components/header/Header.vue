@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-    padding: 20px 0;
+    padding: 20px 0 200px;
 }
 .router-link-exact-active {
     font-weight: 700;

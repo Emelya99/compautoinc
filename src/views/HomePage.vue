@@ -1,21 +1,16 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <com-heading
-        title-content="The most popular game last month"
-      />
-      <router-link class="default-btn background" :to="{name: 'reviews'}">More reviews</router-link>
-    </div>
-  </section>
+  <div>
+    <latest-reviews />
+  </div>
 </template>
 
 <script>
-import ComHeading from "@/components/partials/Heading";
+import LatestReviews from "@/components/sections/LatestReviews";
 
 export default {
   name: 'ComHomePage',
   components: {
-    ComHeading
+    LatestReviews
   },
 }
 </script>
