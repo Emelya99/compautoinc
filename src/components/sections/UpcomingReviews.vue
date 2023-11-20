@@ -1,19 +1,8 @@
 <template>
-    <section class="latest-reviews_section section">
+    <section class="upcoming-reviews_section section">
         <div class="container">
-            <div class="top-part-section">
-                <div class="left-part">
-                    <com-heading title-content="Latest reviews" text-content="The latest reviews for you from our team" />
-                </div>
-                <div class="right-part">
-                    <router-link class="default-btn background" :to="{ name: 'reviews' }">
-                        More reviews
-                        <svg class="svg-icons">
-                            <use xlink:href="@/assets/images/icons.svg#btn-arrow"></use>
-                        </svg>
-                    </router-link>
-                </div>
-            </div>
+            <com-heading title-content="Upcoming reviews"
+                text-content="New reviews from our team, which will appear on our website very soon" />
             <div v-if="error">
                 {{ error }}
             </div>
@@ -33,14 +22,14 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/latestReviews";
+import { actionTypes } from "@/store/modules/upcomingReviews";
 import { countOnBilletsDevices } from '@/helpers/utils';
 import ComHeading from "@/components/partials/Heading";
 import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
 import ComSkeletonAppBilletCard1 from "@/components/billets/app-billets/card1/SkeletonAppBilletCard1";
 
 export default {
-    name: 'ComLatestReviews',
+    name: 'ComUpcomingReviews',
     components: {
         ComHeading,
         ComAppBilletCard1,
@@ -48,16 +37,22 @@ export default {
     },
     computed: {
         ...mapState({
-            isLoading: state => state.latestReviews.isLoading,
-            products: state => state.latestReviews.data,
-            error: state => state.latestReviews.error
+            isLoading: state => state.upcomingReviews.isLoading,
+            products: state => state.upcomingReviews.data,
+            error: state => state.upcomingReviews.error
         }),
         countPage() {
-            return countOnBilletsDevices(12, 8, 4);
+            return countOnBilletsDevices(6, 4, 4);
         }
     },
     mounted() {
-        this.$store.dispatch(actionTypes.getLatestReviews, { countPage: this.countPage });
+        this.$store.dispatch(actionTypes.getUpcomingReviews, { countPage: this.countPage });
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.heading-container {
+    @include margin-bottom(40px,25px,20px);
+}
+</style>

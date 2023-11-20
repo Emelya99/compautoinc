@@ -1,16 +1,19 @@
 <template>
   <div>
-    <latest-reviews />
+    <com-latest-reviews />
+    <com-upcoming-reviews/>
   </div>
 </template>
 
 <script>
-import LatestReviews from "@/components/sections/LatestReviews";
+import ComLatestReviews from "@/components/sections/LatestReviews";
+import ComUpcomingReviews from '@/components/sections/UpcomingReviews';
 
 export default {
   name: 'ComHomePage',
   components: {
-    LatestReviews
+    ComLatestReviews,
+    ComUpcomingReviews
   },
 }
 </script>

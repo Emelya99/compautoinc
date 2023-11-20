@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import products from "@/store/modules/products";
+import latestReviews from "@/store/modules/latestReviews";
+import upcomingReviews from "@/store/modules/upcomingReviews";
 
 Vue.use(Vuex);
 
@@ -11,6 +12,7 @@ export default new Vuex.Store({
   mutations: {},
   actions: {},
   modules: {
-    products
+    latestReviews,
+    upcomingReviews
   },
 });

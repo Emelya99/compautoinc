@@ -7,13 +7,13 @@ const state = {
 };
 
 export const mutationTypes = {
-  getLatestReviewsStart: '[products] getLatestReviewsStart',
-  getLatestReviewsSuccess: '[products] getLatestReviewsSuccess',
-  getLatestReviewsFailure: '[products] getLatestReviewsFailure',
+  getLatestReviewsStart: '[latest reviews] getLatestReviewsStart',
+  getLatestReviewsSuccess: '[latest reviews] getLatestReviewsSuccess',
+  getLatestReviewsFailure: '[latest reviews] getLatestReviewsFailure',
 };
 
 export const actionTypes = {
-  getLatestReviews: '[products] getLatestReviews',
+  getLatestReviews: '[latest reviews] getLatestReviews',
 };
 
 const mutations = {

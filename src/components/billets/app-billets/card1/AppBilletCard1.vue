@@ -2,6 +2,7 @@
     <router-link class="app-billet card1" :to="{ name: 'app', params: { slug: `${product.slug}` } }">
         <span class="img-container">
             <img v-if="product.background_image" :src="product.background_image" :alt="product.name">
+            <img v-else src="@/assets/images/placeholder-game.png" alt="default-img">
         </span>
         <span class="concise-info">
             <ul class="platforms_list" v-if="product.parent_platforms">
@@ -10,7 +11,7 @@
                 </li>
             </ul>
             <span class="title ellipsis-multiply one">{{ product.name }}</span>
-            <span class="rating-box">
+            <span class="rating-box" v-if="product.rating != 0">
                 <svg class="svg-icons">
                     <use xlink:href="@/assets/images/icons.svg#rating-star"></use>
                 </svg>
@@ -52,12 +53,14 @@ export default {
         height: 100%;
         z-index: 1;
         background: linear-gradient(180deg, rgba(23, 23, 23, 0.10) 0%, rgba(23, 23, 23, 0.70) 100%);
+        transition: $base-transition;
     }
 
     &:hover,
     &:focus {
         &::after {
             background: linear-gradient(180deg, rgba(23, 23, 23, 0.10) 0%, rgba(23, 23, 23, 0.90) 100%);
+            transition: $base-transition;
         }
     }
 
