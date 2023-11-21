@@ -46,13 +46,9 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch(actionTypes.getUpcomingReviews, { countPage: this.countPage });
+        if (!this.products) {
+            this.$store.dispatch(actionTypes.getUpcomingReviews, { countPage: this.countPage });
+        }
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.heading-container {
-    @include margin-bottom(40px,25px,20px);
-}
-</style>

@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 
 import latestReviews from "@/store/modules/latestReviews";
 import upcomingReviews from "@/store/modules/upcomingReviews";
+import platforms from "@/store/modules/platforms";
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     latestReviews,
-    upcomingReviews
+    upcomingReviews,
+    platforms,
   },
 });

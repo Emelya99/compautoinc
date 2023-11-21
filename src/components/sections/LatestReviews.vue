@@ -57,7 +57,9 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch(actionTypes.getLatestReviews, { countPage: this.countPage });
+        if (!this.products) {
+            this.$store.dispatch(actionTypes.getLatestReviews, { countPage: this.countPage });
+        }
     }
 }
 </script>

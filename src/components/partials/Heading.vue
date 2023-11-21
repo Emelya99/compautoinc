@@ -25,6 +25,7 @@ export default {
     .heading-container {
         position: relative;
         padding-left: 12px;
+        @include margin-bottom(40px,25px,20px);
         &::after {
             position: absolute;
             content: '';

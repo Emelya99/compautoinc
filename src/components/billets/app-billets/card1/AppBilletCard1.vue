@@ -2,7 +2,7 @@
     <router-link class="app-billet card1" :to="{ name: 'app', params: { slug: `${product.slug}` } }">
         <span class="img-container">
             <img v-if="product.background_image" :src="product.background_image" :alt="product.name">
-            <img v-else src="@/assets/images/placeholder-game.png" alt="default-img">
+            <img v-else src="@/assets/images/placeholder-game.png" :alt="product.name">
         </span>
         <span class="concise-info">
             <ul class="platforms_list" v-if="product.parent_platforms">
@@ -39,36 +39,26 @@ export default {
 .app-billet.card1 {
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     overflow: hidden;
     border-radius: 10px;
-
-    &::after {
-        position: absolute;
-        content: '';
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        background: linear-gradient(180deg, rgba(23, 23, 23, 0.10) 0%, rgba(23, 23, 23, 0.70) 100%);
-        transition: $base-transition;
-    }
-
-    &:hover,
-    &:focus {
-        &::after {
-            background: linear-gradient(180deg, rgba(23, 23, 23, 0.10) 0%, rgba(23, 23, 23, 0.90) 100%);
-            transition: $base-transition;
-        }
-    }
 
     .img-container {
         position: relative;
         width: 100%;
         height: 160px;
         z-index: 0;
+        &::after {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(23, 23, 23, 0.10) 0%, rgba(23, 23, 23, 0.70) 100%);
+        }
     }
 
     .concise-info {
@@ -85,6 +75,7 @@ export default {
         font-size: 18px;
         line-height: 24px;
         color: $white-color;
+        transition: $base-transition;
     }
 
     .platforms_list {
@@ -97,7 +88,7 @@ export default {
         padding: 20px;
         width: 100%;
 
-        &>li {
+        & > li {
             margin: 0 10px 10px 0;
 
             span {
@@ -151,4 +142,5 @@ export default {
             line-height: 18px;
         }
     }
-}</style>
+}
+</style>
