@@ -1,6 +1,7 @@
 <template>
   <div>
     <com-latest-reviews />
+    <com-popular-reviews />
     <com-platforms />
     <com-upcoming-reviews/>
   </div>
@@ -8,6 +9,7 @@
 
 <script>
 import ComLatestReviews from "@/components/sections/LatestReviews";
+import ComPopularReviews from "@/components/sections/PopularReviews"
 import ComPlatforms from "@/components/sections/Platforms";
 import ComUpcomingReviews from '@/components/sections/UpcomingReviews';
 
@@ -16,7 +18,8 @@ export default {
   components: {
     ComLatestReviews,
     ComUpcomingReviews,
-    ComPlatforms
+    ComPlatforms,
+    ComPopularReviews
   },
 }
 </script>

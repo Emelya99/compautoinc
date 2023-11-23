@@ -24,6 +24,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
 .platform-billet.card1 {
     position: relative;
     display: flex;

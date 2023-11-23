@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
     .heading-container {
         position: relative;
         padding-left: 12px;
