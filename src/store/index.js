@@ -3,8 +3,9 @@ import Vuex from 'vuex';
 
 import latestReviews from "@/store/modules/latestReviews";
 import popularReviews from "@/store/modules/popularReviews";
-import upcomingReviews from "@/store/modules/upcomingReviews";
 import platforms from "@/store/modules/platforms";
+import mostPopularGame from "@/store/modules/mostPopularGame";
+import upcomingReviews from "@/store/modules/upcomingReviews";
 
 Vue.use(Vuex);
 
@@ -16,7 +17,8 @@ export default new Vuex.Store({
   modules: {
     latestReviews,
     popularReviews,
-    upcomingReviews,
     platforms,
+    mostPopularGame,
+    upcomingReviews,
   },
 });

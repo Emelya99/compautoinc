@@ -12,6 +12,12 @@ const getPopularReviews = (countPage, page) => {
     .then((response) => response.data.results);
 };
 
+const getMostPopularGame = () => {
+  return axios
+    .get(`/games/grand-theft-auto-v`)
+    .then((response) => response.data);
+};
+
 const getUpcomingReviews = (countPage) => {
   return axios
     .get(`/games?page_size=${countPage}&ordering=-released`)
@@ -22,4 +28,5 @@ export default {
   getLatestReviews,
   getPopularReviews,
   getUpcomingReviews,
+  getMostPopularGame,
 };
