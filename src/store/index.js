@@ -6,6 +6,7 @@ import popularReviews from "@/store/modules/popularReviews";
 import platforms from "@/store/modules/platforms";
 import mostPopularGame from "@/store/modules/mostPopularGame";
 import upcomingReviews from "@/store/modules/upcomingReviews";
+import genres from "@/store/modules/genres";
 
 Vue.use(Vuex);
 
@@ -20,5 +21,6 @@ export default new Vuex.Store({
     platforms,
     mostPopularGame,
     upcomingReviews,
+    genres,
   },
 });

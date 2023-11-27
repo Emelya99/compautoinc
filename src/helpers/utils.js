@@ -1,4 +1,4 @@
-export const countOnBilletsDevices = (desktopCount, tabletCount, mobileCount) => {
+export const countOfBilletsOnDevices = (desktopCount, tabletCount, mobileCount) => {
     const innerWidth = window.innerWidth;
     if (innerWidth > 1024) {
         return desktopCount

@@ -1,11 +1,11 @@
 <template>
-    <router-link class="platform-billet card1"
-        :to="{ name: 'platformItem', params: { slug: `${platform.slug}` } }">
+    <router-link class="genre-billet card1"
+        :to="{ name: 'genreItem', params: { slug: `${genre.slug}` } }">
         <span class="img-container">
-            <img :src="platform.image_background" :alt="platform.name">
+            <img :src="genre.image_background" :alt="genre.name">
         </span>
         <span class="concise-info">
-            <span class="title ellipsis-multiply one">{{ platform.name }}</span>
+            <span class="title ellipsis-multiply one">{{ genre.name }}</span>
         </span>
     </router-link>
 </template>
@@ -13,9 +13,9 @@
 <script>
 
 export default {
-    name: 'ComPlatformBilletCard1',
+    name: 'ComGenreBilletCard1',
     props: {
-        platform: {
+        genre: {
             type: Object,
             required: true,
         }
@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/style/variables.scss";
-.platform-billet.card1 {
+.genre-billet.card1 {
     position: relative;
     display: flex;
     flex-direction: column;

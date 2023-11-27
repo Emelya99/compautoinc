@@ -1,11 +1,11 @@
 import axios from '@/api/axios';
 
-export const getPlatforms = (pageCount) => {
+export const getGenres = (pageCount) => {
   return axios
-    .get(`/platforms?page_size=${pageCount}`)
+    .get(`/genres?page_size=${pageCount}`)
     .then((response) => response.data.results);
 };
 
 export default {
-  getPlatforms,
+    getGenres,
 };

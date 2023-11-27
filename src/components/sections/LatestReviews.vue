@@ -19,7 +19,7 @@
             </div>
             <ul v-if="isLoading" class="grid-list style-1">
                 <li v-for="index in countPage" :key="index">
-                    <com-skeleton-app-billet-card1 />
+                    <com-skeleton-card1 />
                 </li>
             </ul>
             <ul v-if="products" class="grid-list style-1">
@@ -34,17 +34,17 @@
 <script>
 import { mapState } from 'vuex';
 import { actionTypes } from "@/store/modules/latestReviews";
-import { countOnBilletsDevices } from '@/helpers/utils';
+import { countOfBilletsOnDevices } from '@/helpers/utils';
 import ComHeading from "@/components/partials/Heading";
 import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
-import ComSkeletonAppBilletCard1 from "@/components/billets/app-billets/card1/SkeletonAppBilletCard1";
+import ComSkeletonCard1 from '@/components/billets/partials/steletons/SkeletonCard1';
 
 export default {
     name: 'ComLatestReviews',
     components: {
         ComHeading,
         ComAppBilletCard1,
-        ComSkeletonAppBilletCard1
+        ComSkeletonCard1
     },
     computed: {
         ...mapState({
@@ -53,7 +53,7 @@ export default {
             error: state => state.latestReviews.error
         }),
         countPage() {
-            return countOnBilletsDevices(12, 8, 4);
+            return countOfBilletsOnDevices(12, 8, 4);
         }
     },
     mounted() {

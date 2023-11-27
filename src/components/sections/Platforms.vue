@@ -8,7 +8,7 @@
             </div>
             <ul v-if="isLoading" class="grid-list style-1">
                 <li v-for="index in 6" :key="index">
-                    <com-steleton-platform-billet-card1 />
+                    <com-steleton-card2 />
                 </li>
             </ul>
             <ul v-if="platforms" class="grid-list style-1">
@@ -25,14 +25,14 @@ import { mapState } from 'vuex';
 import { actionTypes } from "@/store/modules/platforms";
 import ComHeading from "@/components/partials/Heading";
 import ComPlatformBilletCard1 from '@/components/billets/platform-billets/card1/PlatformBilletCard1';
-import ComSteletonPlatformBilletCard1 from '@/components/billets/platform-billets/card1/SteletonPlatformBilletCard1';
+import ComSteletonCard2 from '@/components/billets/partials/steletons/SkeletonCard2';
 
 export default {
     name: 'ComPlatforms',
     components: {
         ComHeading,
         ComPlatformBilletCard1,
-        ComSteletonPlatformBilletCard1
+        ComSteletonCard2
     },
     computed: {
         ...mapState({

@@ -12,7 +12,7 @@
 import { ContentLoader } from "vue-content-loader";
 
 export default {
-    name: 'ComSteletonAppBilletCard1',
+    name: 'ComSteletonCard1',
     components: {
         ContentLoader
     }
