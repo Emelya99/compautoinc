@@ -17,13 +17,13 @@
                         <h3 class="title small">Best apps</h3>
                         <ul class="footer-list">
                             <li>
-                                <router-link :to="{ name: 'app', params: { slug: 'grand-theft-auto-v' } }" class="ellipsis">
-                                    Grand Theft Auto V
+                                <router-link :to="{ name: 'app', params: { slug: 'counter-strike-global-offensive' } }" class="ellipsis">
+                                    Counter-Strike: Global Offensive
                                 </router-link>
                             </li>
                             <li>
-                                <router-link :to="{ name: 'app', params: { slug: 'the-witcher-3-wild-hunt' } }" class="ellipsis">
-                                    The Witcher 3: Wild Hunt
+                                <router-link :to="{ name: 'app', params: { slug: 'grand-theft-auto-v' } }" class="ellipsis">
+                                    Grand Theft Auto V
                                 </router-link>
                             </li>
                             <li>
@@ -32,8 +32,8 @@
                                 </router-link>
                             </li>
                             <li>
-                                <router-link :to="{ name: 'app', params: { slug: 'counter-strike-global-offensive' } }" class="ellipsis">
-                                    Counter-Strike: Global Offensive
+                                <router-link :to="{ name: 'app', params: { slug: 'the-witcher-3-wild-hunt' } }" class="ellipsis">
+                                    The Witcher 3: Wild Hunt
                                 </router-link>
                             </li>
                             <li>
@@ -47,6 +47,16 @@
                         <h3 class="title small">Best platforms</h3>
                         <ul class="footer-list">
                             <li>
+                                <router-link :to="{ name: 'platformItem', params: { slug: 'android' } }" class="ellipsis">
+                                    Android
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'platformItem', params: { slug: 'ios' } }" class="ellipsis">
+                                    iOS
+                                </router-link>
+                            </li>
+                            <li>
                                 <router-link :to="{ name: 'platformItem', params: { slug: 'pc' } }" class="ellipsis">
                                     PC
                                 </router-link>
@@ -59,16 +69,6 @@
                             <li>
                                 <router-link :to="{ name: 'platformItem', params: { slug: 'xbox' } }" class="ellipsis">
                                     Xbox
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'platformItem', params: { slug: 'ios' } }" class="ellipsis">
-                                    iOS
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'platformItem', params: { slug: 'android' } }" class="ellipsis">
-                                    Android
                                 </router-link>
                             </li>
                         </ul>
@@ -105,7 +105,7 @@
                     </div>
                     <div class="footer-item">
                         <h3 class="title small">Follow us</h3>
-                        <com-social-list />
+                        <com-social-list style-type="dark" />
                     </div>
                 </div>
             </div>
