@@ -1,0 +1,398 @@
+<template>
+    <nav class="nav-menu" :class="{active: isMenuOpened}">
+        <button class="close-btn" @click="toggleMenu">
+            <svg class="svg-icons">
+                <use xlink:href="@/assets/images/icons.svg#close-btn"></use>
+            </svg>
+        </button>
+        <h3 class="title medium">Menu</h3>
+        <ul class="nav-list">
+            <li>
+                <router-link class="nav-link" :to="{ name: 'home' }">
+                    Home
+                </router-link>
+            </li>
+            <li>
+                <router-link class="nav-link" :to="{ name: 'reviews' }">
+                    Reviews
+                </router-link>
+            </li>
+            <li class="dropdown" @click="toggleDropdown" ref="dropdownBox">
+                <button class="nav-link dropdown-link" :class="{ active: isDropdown }">
+                    Categories
+                    <svg class="svg-icons">
+                        <use xlink:href="@/assets/images/icons.svg#arrow-bottom"></use>
+                    </svg>
+                </button>
+                <div v-if="isDropdown" class="dropdown-box">
+                    <ul class="dropdown-list">
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'action' } }" class="ellipsis">
+                                Action
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'adventure' } }" class="ellipsis">
+                                Adventure
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'arcade' } }" class="ellipsis">
+                                Arcade
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'board-games' } }" class="ellipsis">
+                                Board Games
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'card' } }" class="ellipsis">
+                                Card
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'casual' } }" class="ellipsis">
+                                Casual
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'educational' } }" class="ellipsis">
+                                Educational
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'family' } }" class="ellipsis">
+                                Family
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'fighting' } }" class="ellipsis">
+                                Fighting
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'indie' } }" class="ellipsis">
+                                Indie
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'massively-multiplayer' } }"
+                                class="ellipsis">
+                                Massively Multiplayer
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'platformer' } }" class="ellipsis">
+                                Platformer
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'puzzle' } }" class="ellipsis">
+                                Puzzle
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'racing' } }" class="ellipsis">
+                                Racing
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'role-playing-games-rpg' } }"
+                                class="ellipsis">
+                                RPG
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'shooter' } }" class="ellipsis">
+                                Shooter
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'simulation' } }" class="ellipsis">
+                                Simulation
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'sports' } }" class="ellipsis">
+                                Sports
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'genreItem', params: { slug: 'strategy' } }" class="ellipsis">
+                                Strategy
+                            </router-link>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <router-link class="nav-link" :to="{ name: 'platforms' }">
+                    Platforms
+                </router-link>
+            </li>
+            <li>
+                <router-link class="nav-link" :to="{ name: 'genres' }">
+                    Genres
+                </router-link>
+            </li>
+        </ul>
+        <div class="social-box">
+            <com-social-list style-type="light" />
+        </div>
+    </nav>
+</template>
+
+<script>
+import ComSocialList from '@/components/socialLists/SocialList';
+
+export default {
+    name: 'ComNavMenu',
+    props: {
+        isMenuOpened: {
+            type: Boolean,
+            required: true,
+        }
+    },
+    components: {
+        ComSocialList
+    },
+    data() {
+        return {
+            isDropdown: false,
+        }
+    },
+    methods: {
+        toggleDropdown() {
+            this.isDropdown = !this.isDropdown;
+        },
+        closeDropdown(e) {
+            const dropdownBox = this.$refs.dropdownBox;
+            if (this.isDropdown && !dropdownBox.contains(e.target)) {
+                this.isDropdown = false;
+            }
+        },
+        toggleMenu() {
+            this.$emit("toggleMenu");
+        },
+    },
+    mounted() {
+        document.addEventListener('click', this.closeDropdown);
+    },
+}
+</script>
+
+<style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
+
+.nav-menu {
+    .nav-list {
+        display: flex;
+        align-items: center;
+
+        &>li {
+            &:not(:last-child) {
+                margin-right: 50px;
+            }
+
+            &>.nav-link {
+                font-size: 18px;
+                line-height: 24px;
+                color: $secondary-color;
+
+                &.router-link-exact-active,
+                &:hover {
+                    color: $accent-color;
+                }
+            }
+
+            &>.dropdown-link {
+                display: flex;
+                align-items: center;
+
+                &.active {
+                    color: $accent-color;
+
+                    svg {
+                        top: -3px;
+                        left: -3px;
+                        transform: rotate(-180deg);
+                    }
+                }
+
+                svg {
+                    position: relative;
+                    top: 4px;
+                    font-size: 14px;
+                    margin-left: 10px;
+                    transition: $base-transition;
+                }
+            }
+        }
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-box {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        width: 170px;
+        padding: 12px 12px 12px 0;
+        border-radius: 5px;
+        box-shadow: 6px 6px 50px 0px rgba(0, 0, 0, 0.10);
+        background: $white-color;
+    }
+
+    .dropdown-list {
+        max-height: 179px;
+        padding-left: 12px;
+        overflow-y: auto;
+
+        &>li {
+            margin-right: 10px;
+
+            &:not(:last-child) {
+                @include margin-bottom(7px,10px,null);
+            }
+
+            &>a {
+                display: block;
+                font-size: 16px;
+                line-height: 24px;
+                color: $secondary-color;
+
+                &:hover {
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+    .social-box,
+    .title.medium,
+    .close-btn {
+        display: none;
+    }
+
+    @media(max-width: $tablet) {
+        display: none;
+        &.active {
+            display: block;
+        }
+
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 444px;
+        height: 100%;
+        background: linear-gradient(113deg, #67AD5B 9.57%, #137217 92.2%);
+        
+        &::after {
+            position: fixed;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgba(103, 173, 91, 0.80);
+        }
+
+        .nav-list {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            height: calc(100% - 130px);
+            overflow-y: auto;
+            padding: 0 0 130px;
+            & > li {
+                width: 100%;
+                &:not(:last-child) {
+                    margin: 0;
+                }
+                & > .nav-link {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 100%;
+                    padding: 15px 30px;
+                    font-weight: 700;
+                    line-height: 26px;
+                    color: $white-color;
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        top: 50%;
+                        left: 30px;
+                        transform: translateY(-50%);
+                        width: 4px;
+                        height: 22px;
+                        opacity: 0;
+                        background: $accent-color;
+                    }
+                    &.active,
+                    &.router-link-exact-active,
+                    &:hover {
+                        padding-left: 44px;
+                        color: $accent-color;
+                        background: $white-color;
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        .dropdown-box {
+            position: relative;
+            top: 0;
+            width: 100%;
+            padding: 0 15px 30px 0;
+            border-radius: initial;
+            box-shadow: initial;
+        }
+        .dropdown-list {
+            max-height: 160px;
+            padding: 0 0 0 45px;
+        }
+
+        .title.medium {
+            display: block;
+            padding: 25px 30px 0;
+            margin-bottom: 40px;
+            color: $white-color;
+        }
+
+        .social-box {
+            display: block;
+            position: absolute;
+            bottom: 35px;
+            left: 30px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 32px;
+            right: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            z-index: 1;
+            border-radius: 6px;
+            color: $accent-color;
+            background: $white-color;
+            &:hover {
+                color: $white-color;
+                background: $accent-color;
+            }
+            svg {
+                font-size: 10px;
+            }
+        }
+    }
+}
+</style>
