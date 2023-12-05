@@ -1,4 +1,9 @@
 .page {
+    @media(max-width: $tablet) {
+        &.disabled {
+            overflow: hidden;
+        }
+    }
     main {
         padding-bottom: 120px;
         @media(max-width: $tablet) {

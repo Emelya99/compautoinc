@@ -1,146 +1,153 @@
 <template>
-    <nav class="nav-menu" :class="{active: isMenuOpened}">
-        <button class="close-btn" @click="toggleMenu">
+    <div class="nav-container">
+        <nav class="nav-menu" :class="{ active: isMenuOpened }" ref="navMenuBox">
+            <button class="close-btn" ref="navMenuClose">
+                <svg class="svg-icons">
+                    <use xlink:href="@/assets/images/icons.svg#close-btn"></use>
+                </svg>
+            </button>
+            <h3 class="title medium">Menu</h3>
+            <ul class="nav-list">
+                <li>
+                    <router-link class="nav-link" :to="{ name: 'home' }">
+                        Home
+                    </router-link>
+                </li>
+                <li>
+                    <router-link class="nav-link" :to="{ name: 'reviews' }">
+                        Reviews
+                    </router-link>
+                </li>
+                <li class="dropdown" ref="dropdownBox">
+                    <button class="nav-link dropdown-link" :class="{ active: isDropdownOpened }" ref="dropdownBtn">
+                        Categories
+                        <svg class="svg-icons">
+                            <use xlink:href="@/assets/images/icons.svg#arrow-bottom"></use>
+                        </svg>
+                    </button>
+                    <div v-if="isDropdownOpened" class="dropdown-box">
+                        <ul class="dropdown-list">
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'action' } }" class="ellipsis">
+                                    Action
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'adventure' } }" class="ellipsis">
+                                    Adventure
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'arcade' } }" class="ellipsis">
+                                    Arcade
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'board-games' } }" class="ellipsis">
+                                    Board Games
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'card' } }" class="ellipsis">
+                                    Card
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'casual' } }" class="ellipsis">
+                                    Casual
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'educational' } }" class="ellipsis">
+                                    Educational
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'family' } }" class="ellipsis">
+                                    Family
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'fighting' } }" class="ellipsis">
+                                    Fighting
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'indie' } }" class="ellipsis">
+                                    Indie
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'massively-multiplayer' } }"
+                                    class="ellipsis">
+                                    Massively Multiplayer
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'platformer' } }" class="ellipsis">
+                                    Platformer
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'puzzle' } }" class="ellipsis">
+                                    Puzzle
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'racing' } }" class="ellipsis">
+                                    Racing
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'role-playing-games-rpg' } }"
+                                    class="ellipsis">
+                                    RPG
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'shooter' } }" class="ellipsis">
+                                    Shooter
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'simulation' } }" class="ellipsis">
+                                    Simulation
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'sports' } }" class="ellipsis">
+                                    Sports
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'genreItem', params: { slug: 'strategy' } }" class="ellipsis">
+                                    Strategy
+                                </router-link>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <router-link class="nav-link" :to="{ name: 'platforms' }">
+                        Platforms
+                    </router-link>
+                </li>
+                <li>
+                    <router-link class="nav-link" :to="{ name: 'genres' }">
+                        Genres
+                    </router-link>
+                </li>
+            </ul>
+            <div class="social-box">
+                <com-social-list style-type="light" />
+            </div>
+        </nav>
+        <button class="burger-btn" ref="navMenuBtn">
             <svg class="svg-icons">
-                <use xlink:href="@/assets/images/icons.svg#close-btn"></use>
+                <use xlink:href="@/assets/images/icons.svg#burger-btn"></use>
             </svg>
         </button>
-        <h3 class="title medium">Menu</h3>
-        <ul class="nav-list">
-            <li>
-                <router-link class="nav-link" :to="{ name: 'home' }">
-                    Home
-                </router-link>
-            </li>
-            <li>
-                <router-link class="nav-link" :to="{ name: 'reviews' }">
-                    Reviews
-                </router-link>
-            </li>
-            <li class="dropdown" @click="toggleDropdown" ref="dropdownBox">
-                <button class="nav-link dropdown-link" :class="{ active: isDropdown }">
-                    Categories
-                    <svg class="svg-icons">
-                        <use xlink:href="@/assets/images/icons.svg#arrow-bottom"></use>
-                    </svg>
-                </button>
-                <div v-if="isDropdown" class="dropdown-box">
-                    <ul class="dropdown-list">
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'action' } }" class="ellipsis">
-                                Action
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'adventure' } }" class="ellipsis">
-                                Adventure
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'arcade' } }" class="ellipsis">
-                                Arcade
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'board-games' } }" class="ellipsis">
-                                Board Games
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'card' } }" class="ellipsis">
-                                Card
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'casual' } }" class="ellipsis">
-                                Casual
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'educational' } }" class="ellipsis">
-                                Educational
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'family' } }" class="ellipsis">
-                                Family
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'fighting' } }" class="ellipsis">
-                                Fighting
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'indie' } }" class="ellipsis">
-                                Indie
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'massively-multiplayer' } }"
-                                class="ellipsis">
-                                Massively Multiplayer
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'platformer' } }" class="ellipsis">
-                                Platformer
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'puzzle' } }" class="ellipsis">
-                                Puzzle
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'racing' } }" class="ellipsis">
-                                Racing
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'role-playing-games-rpg' } }"
-                                class="ellipsis">
-                                RPG
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'shooter' } }" class="ellipsis">
-                                Shooter
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'simulation' } }" class="ellipsis">
-                                Simulation
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'sports' } }" class="ellipsis">
-                                Sports
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'genreItem', params: { slug: 'strategy' } }" class="ellipsis">
-                                Strategy
-                            </router-link>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <router-link class="nav-link" :to="{ name: 'platforms' }">
-                    Platforms
-                </router-link>
-            </li>
-            <li>
-                <router-link class="nav-link" :to="{ name: 'genres' }">
-                    Genres
-                </router-link>
-            </li>
-        </ul>
-        <div class="social-box">
-            <com-social-list style-type="light" />
-        </div>
-    </nav>
+    </div>
 </template>
 
 <script>
@@ -148,36 +155,77 @@ import ComSocialList from '@/components/socialLists/SocialList';
 
 export default {
     name: 'ComNavMenu',
-    props: {
-        isMenuOpened: {
-            type: Boolean,
-            required: true,
-        }
-    },
     components: {
         ComSocialList
     },
-    data() {
-        return {
-            isDropdown: false,
+    computed: {
+        pageParent() {
+            return this.$parent.$parent.$el;
+        },
+        navParent() {
+            return this.$el;
+        },
+        slug() {
+            return this.$route.path;
         }
     },
-    methods: {
-        toggleDropdown() {
-            this.isDropdown = !this.isDropdown;
-        },
-        closeDropdown(e) {
-            const dropdownBox = this.$refs.dropdownBox;
-            if (this.isDropdown && !dropdownBox.contains(e.target)) {
-                this.isDropdown = false;
+    data() {
+        return {
+            isDropdownOpened: false,
+            isMenuOpened: false,
+        }
+    },
+    watch: {
+        slug() {
+            this.removeDisabledMethods();
+            if (this.isDropdownOpened) {
+                this.isDropdownOpened = false;
+            }
+            if (this.isMenuOpened) {
+                this.isMenuOpened = false;
             }
         },
-        toggleMenu() {
-            this.$emit("toggleMenu");
+    },
+    methods: {
+        toggleDropdown(e) {
+            const dropdownBtn = this.$refs.dropdownBtn;
+            const dropdownBox = this.$refs.dropdownBox;
+            if (dropdownBtn === e.target) {
+                this.isDropdownOpened = !this.isDropdownOpened;
+                return;
+            }
+            if (this.isDropdownOpened && !dropdownBox.contains(e.target)) {
+                this.isDropdownOpened = false;
+                return;
+            }
         },
+        toggleMenu(e) {
+            const navMenuBtn = this.$refs.navMenuBtn;
+            const navMenuClose = this.$refs.navMenuClose;
+            const navMenuBox = this.$refs.navMenuBox;
+            if (navMenuBtn.contains(e.target)) {
+                this.isMenuOpened = true;
+                this.addDisabledSettings();
+                return;
+            }
+            if (this.isMenuOpened && (navMenuClose.contains(e.target) || !navMenuBox.contains(e.target))) {
+                this.isMenuOpened = false;
+                this.removeDisabledMethods();
+                return;
+            }
+        },
+        addDisabledSettings() {
+            this.pageParent.classList.add('disabled');
+            this.navParent.classList.add('menu-open');
+        },
+        removeDisabledMethods() {
+            this.pageParent.classList.remove('disabled');
+            this.navParent.classList.remove('menu-open');
+        }
     },
     mounted() {
-        document.addEventListener('click', this.closeDropdown);
+        document.addEventListener('click', this.toggleDropdown);
+        document.addEventListener('click', this.toggleMenu);
     },
 }
 </script>
@@ -185,7 +233,8 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/style/variables.scss";
 
-.nav-menu {
+.nav-container {
+
     .nav-list {
         display: flex;
         align-items: center;
@@ -255,7 +304,7 @@ export default {
             margin-right: 10px;
 
             &:not(:last-child) {
-                @include margin-bottom(7px,10px,null);
+                @include margin-bottom(7px, 10px, null);
             }
 
             &>a {
@@ -270,6 +319,8 @@ export default {
             }
         }
     }
+
+    .burger-btn,
     .social-box,
     .title.medium,
     .close-btn {
@@ -277,42 +328,52 @@ export default {
     }
 
     @media(max-width: $tablet) {
-        display: none;
-        &.active {
-            display: block;
+        position: relative;
+        z-index: 2;
+
+        &.menu-open {
+            &::after {
+                position: fixed;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background: rgba(103, 173, 91, 0.80);
+            }
         }
 
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 444px;
-        height: 100%;
-        background: linear-gradient(113deg, #67AD5B 9.57%, #137217 92.2%);
-        
-        &::after {
+        .nav-menu {
+            display: none;
             position: fixed;
-            content: '';
             top: 0;
-            left: 0;
-            width: 100%;
+            right: 0;
+            width: 444px;
             height: 100%;
-            z-index: -1;
-            background: rgba(103, 173, 91, 0.80);
+            background: linear-gradient(113deg, #67AD5B 9.57%, #137217 92.2%);
+
+            &.active {
+                display: block;
+            }
         }
 
         .nav-list {
             flex-direction: column;
             align-items: flex-start;
             width: 100%;
-            height: calc(100% - 130px);
+            height: calc(100% - 195px);
             overflow-y: auto;
-            padding: 0 0 130px;
-            & > li {
+            padding-top: 15px;
+
+            &>li {
                 width: 100%;
+
                 &:not(:last-child) {
                     margin: 0;
                 }
-                & > .nav-link {
+
+                &>.nav-link {
                     position: relative;
                     display: flex;
                     align-items: center;
@@ -322,6 +383,7 @@ export default {
                     font-weight: 700;
                     line-height: 26px;
                     color: $white-color;
+
                     &::after {
                         position: absolute;
                         content: '';
@@ -333,12 +395,14 @@ export default {
                         opacity: 0;
                         background: $accent-color;
                     }
+
                     &.active,
                     &.router-link-exact-active,
                     &:hover {
                         padding-left: 44px;
                         color: $accent-color;
                         background: $white-color;
+
                         &::after {
                             opacity: 1;
                         }
@@ -346,6 +410,7 @@ export default {
                 }
             }
         }
+
         .dropdown-box {
             position: relative;
             top: 0;
@@ -354,15 +419,16 @@ export default {
             border-radius: initial;
             box-shadow: initial;
         }
+
         .dropdown-list {
             max-height: 160px;
-            padding: 0 0 0 45px;
+            padding: 0 0 0 44px;
         }
 
         .title.medium {
             display: block;
-            padding: 25px 30px 0;
-            margin-bottom: 40px;
+            padding: 25px 30px;
+            margin: 0;
             color: $white-color;
         }
 
@@ -372,6 +438,7 @@ export default {
             bottom: 35px;
             left: 30px;
         }
+
         .close-btn {
             position: absolute;
             top: 32px;
@@ -385,13 +452,96 @@ export default {
             border-radius: 6px;
             color: $accent-color;
             background: $white-color;
+
             &:hover {
                 color: $white-color;
                 background: $accent-color;
             }
+
             svg {
                 font-size: 10px;
             }
+        }
+
+        .burger-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            color: $white-color;
+            background: $accent-color;
+
+            &:hover {
+                color: $accent-color;
+                background: $white-color;
+            }
+
+            svg {
+                font-size: 24px;
+            }
+        }
+    }
+
+    @media(max-width: $mobile) {
+        .close-btn {
+            top: 28px;
+            right: 30px;
+        }
+
+        .burger-btn {
+            width: 28px;
+            height: 28px;
+
+            svg {
+                font-size: 16px;
+            }
+        }
+    }
+
+    @media(max-width: 500px) {
+        .nav-menu {
+            width: calc(100% - 66px);
+        }
+
+        .nav-list {
+            height: calc(100% - 159px);
+            padding-top: 35px;
+
+            &>li {
+                &>.nav-link {
+                    padding: 15px 20px;
+
+                    &:after {
+                        left: 20px;
+                    }
+
+                    &.active,
+                    &.router-link-exact-active,
+                    &:hover {
+                        padding-left: 36px;
+                    }
+                }
+            }
+        }
+
+        .dropdown-list {
+            padding-left: 36px;
+        }
+
+        .title.medium {
+            padding: 16px 20px;
+        }
+
+        .close-btn {
+            top: 21px;
+            right: 20px;
+        }
+
+        .social-box {
+            bottom: 32px;
+            left: 20px;
         }
     }
 }
