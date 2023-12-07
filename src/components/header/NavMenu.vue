@@ -328,6 +328,7 @@ export default {
     }
 
     @media(max-width: $tablet) {
+        order: 1;
         position: relative;
         z-index: 2;
 
