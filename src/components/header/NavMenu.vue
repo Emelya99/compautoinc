@@ -327,8 +327,17 @@ export default {
         display: none;
     }
 
-    @media(max-width: $tablet) {
-        order: 1;
+    @media(max-width: 1300px) {
+        .nav-list {
+            & > li {
+                &:not(:last-child) {
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+
+    @media(max-width: 1180px) {
         position: relative;
         z-index: 2;
 
