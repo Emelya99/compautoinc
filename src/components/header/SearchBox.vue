@@ -28,8 +28,13 @@ export default {
         toggleSearchMenu(e) {
             const searchBtn = this.$refs.searchBtn;
             const searchBox = this.$refs.searchBox;
+            const searchInput = this.$refs.searchBox.querySelector('.searh-input');
+
             if (searchBtn.contains(e.target)) {
                 this.isSearchOpened = true;
+                setTimeout(() => {
+                    searchInput.focus();
+                }, 0);
                 return;
             }
             if (this.isSearchOpened && !searchBox.contains(e.target)) {

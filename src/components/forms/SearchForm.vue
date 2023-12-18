@@ -8,12 +8,12 @@
         </button>
 
         <div v-if="(isSearchResultsOpened || error) && search.length >= 2" class="search-results">
-            <ul>
+            <ul ref="resultsBox" @scroll="resultsScroll">
                 <li v-if="error">
                     <p class="info-message">{{ error }}</p>
                 </li>
 
-                <li v-else-if="products.length === 0">
+                <li v-else-if="products.length === 0 && !isLoading">
                     <p class="info-message">No results found for your search.</p>
                 </li>
 
@@ -28,7 +28,7 @@
                 </li>
             </ul>
 
-            <div class="loading-container">
+            <div v-if="isLoading" class="loading-container">
                 <com-small-loader />
             </div>
         </div>
@@ -50,12 +50,14 @@ export default {
         return {
             search: '',
             isSearchResultsOpened: false,
+            page: 1,
         }
     },
     computed: {
         ...mapState({
             isLoading: state => state.search.isLoading,
             products: state => state.search.data,
+            isNextPage: state => state.search.isNextPage,
             error: state => state.search.error
         }),
         slug() {
@@ -75,7 +77,6 @@ export default {
             const formBox = this.$refs.formBox;
             if (this.isSearchResultsOpened && !formBox.contains(e.target)) {
                 this.isSearchResultsOpened = false;
-                return;
             }
         },
         handleSearch() {
@@ -85,8 +86,23 @@ export default {
                 this.isSearchResultsOpened = false;
             }
         },
+        resultsScroll() {
+            const resultsBox = this.$refs.resultsBox;
+
+            if (resultsBox.scrollTop + resultsBox.clientHeight + 5 >= resultsBox.scrollHeight && this.isNextPage) {
+                
+                this.loadMoreResults();
+            }
+        },
+        loadMoreResults: debounce(function () {
+            this.page += 1;
+            this.$store.dispatch(actionTypes.getLoadMoreSearch, { currentUserInput: this.search, page: this.page }).then(() => {
+                this.isSearchResultsOpened = true;
+            })
+        }, 500),
         getSearch: debounce(function () {
-            this.$store.dispatch(actionTypes.getSearch, { currentUserInput: this.search }).then(() => {
+            this.page = 1;
+            this.$store.dispatch(actionTypes.getSearch, { currentUserInput: this.search, page: this.page }).then(() => {
                 this.isSearchResultsOpened = true;
             })
         }, 500),
@@ -165,7 +181,9 @@ export default {
         }
 
         li {
-            margin-right: 20px;
+            display: inline-block;
+            width: 100%;
+            padding-right: 20px;
 
             &:not(:last-child) {
                 margin-bottom: 20px;
@@ -227,6 +245,7 @@ export default {
             height: 40px;
         }
     }
+
     @media(max-width: $mobile) {
         .searh-input {
             background: $white-color;
@@ -235,16 +254,19 @@ export default {
         .search-results {
             width: 100%;
             padding: 15px 10px 15px 0;
+
             ul {
                 max-height: 240px;
                 padding-left: 15px;
             }
+
             li {
-                margin-right: 10px;
+
                 &:not(:last-child) {
                     margin-bottom: 15px;
                 }
             }
         }
     }
-}</style>
+}
+</style>
