@@ -20,9 +20,9 @@ export default {
 
     .loading-dot {
         display: inline-block;
-        width: 8px;
-        height: 8px;
-        margin: 0 4px;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
         border-radius: 50%;
         background-color: $accent-color;
         animation: move 1.2s infinite linear alternate;

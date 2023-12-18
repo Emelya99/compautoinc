@@ -1,6 +1,6 @@
 <template>
     <form class="search-form" ref="formBox" autocomplete="off">
-        <input class="searh-input" type="search" placeholder="Search" required v-model="search" @input="handleSearch">
+        <input class="searh-input" type="search" placeholder="Search" required v-model="search" @input="handleSearch" @click="handleClick">
         <button class="sbmt-btn" type="submit">
             <svg class="svg-icons">
                 <use xlink:href="@/assets/images/icons.svg#search"></use>
@@ -84,6 +84,11 @@ export default {
                 this.getSearch();
             } else {
                 this.isSearchResultsOpened = false;
+            }
+        },
+        handleClick() {
+            if (this.search.length >= 2 && this.products) {
+                this.isSearchResultsOpened = true;
             }
         },
         resultsScroll() {

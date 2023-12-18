@@ -58,6 +58,7 @@ const mutations = {
 };
 
 const actions = {
+  // First Request
   [actionTypes.getSearch](context, { currentUserInput, page }) {
     const userText = currentUserInput.split(" ").join("-");
     return new Promise((resolve) => {
@@ -74,6 +75,7 @@ const actions = {
     });
   },
 
+  // Load More
   [actionTypes.getLoadMoreSearch](context, { currentUserInput, page }) {
     const userText = currentUserInput.split(" ").join("-");
     return new Promise((resolve) => {
