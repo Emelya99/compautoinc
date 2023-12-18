@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/style/variables.scss";
+@import "@/styles/variables.scss";
 .genre-billet.card1 {
     position: relative;
     display: flex;

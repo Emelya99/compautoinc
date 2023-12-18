@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/style/variables.scss";
+@import "@/styles/variables.scss";
 .social-list {
     display: flex;
     align-items: center;

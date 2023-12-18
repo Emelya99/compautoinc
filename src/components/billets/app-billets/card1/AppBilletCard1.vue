@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/style/variables.scss";
+@import "@/styles/variables.scss";
 .app-billet.card1 {
     position: relative;
     display: flex;

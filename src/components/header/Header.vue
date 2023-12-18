@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/style/variables.scss";
+@import "@/styles/variables.scss";
 
 .header {
     position: relative;

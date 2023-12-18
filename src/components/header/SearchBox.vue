@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/style/variables.scss";
+@import "@/styles/variables.scss";
 .search-container {
     max-width: 240px;
     width: 100%;
