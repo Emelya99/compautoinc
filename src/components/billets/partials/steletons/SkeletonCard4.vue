@@ -1,17 +1,15 @@
 <template>
-    <content-loader v-if="isDesktop" class="content-loader" :width="loaderWidth || 320" :height="loaderHeight || 128"
+    <content-loader v-if="isDesktop" class="content-loader" :width="loaderWidth || 846" :height="loaderHeight || 550"
         :speed="2" primaryColor="#f3f3f3" secondaryColor="#ecebeb">
-        <rect x="20" y="20" rx="10" ry="10" width="75" height="88" />
-        <rect x="115" y="20" rx="10" ry="10" width="181" height="16" />
-        <rect x="115" y="41" rx="10" ry="10" width="181" height="16" />
-        <rect x="115" y="78" rx="10" ry="10" width="78" height="20" />
+        <rect x="30" y="30" rx="10" ry="10" width="95" height="36" />
+        <rect x="140" y="30" rx="10" ry="10" width="95" height="36" />
+        <rect x="30" y="482" rx="10" ry="10" width="480" height="38" />
     </content-loader>
-    <content-loader v-else class="content-loader" :width="loaderWidth || 220" :height="loaderHeight || 80" :speed="2"
+    <content-loader v-else class="content-loader" :width="loaderWidth || 694" :height="loaderHeight || 348" :speed="2"
         primaryColor="#f3f3f3" secondaryColor="#ecebeb">
-        <rect x="10" y="10" rx="10" ry="10" width="46" height="60" />
-        <rect x="66" y="10" rx="10" ry="10" width="140" height="14" />
-        <rect x="66" y="29" rx="10" ry="10" width="140" height="14" />
-        <rect x="66" y="53" rx="10" ry="10" width="50" height="14" />
+        <rect x="20" y="20" rx="10" ry="10" width="95" height="28" />
+        <rect x="125" y="20" rx="10" ry="10" width="95" height="28" />
+        <rect x="20" y="308" rx="10" ry="10" width="200" height="20" />
     </content-loader>
 </template>
 
@@ -46,10 +44,10 @@ export default {
 @import "@/styles/variables.scss";
 
 .content-loader {
-    height: 128px;
+    height: 550px;
 
     @media(max-width: $tablet) {
-        height: 80px;
+        height: 348px;
     }
 }
 </style>

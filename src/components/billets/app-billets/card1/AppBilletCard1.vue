@@ -1,5 +1,6 @@
 <template>
-    <router-link class="app-billet card1" :to="{ name: 'app', params: { slug: `${product.slug}` } }">
+    <router-link class="app-billet card1" :class="billetExtraClass"
+        :to="{ name: 'app', params: { slug: `${product.slug}` } }">
         <span class="img-container">
             <img v-if="product.background_image" :src="product.background_image" :alt="product.name">
             <img v-else src="@/assets/images/placeholder-game.png" :alt="product.name">
@@ -29,6 +30,10 @@ export default {
         product: {
             type: Object,
             required: true,
+        },
+        billetExtraClass: {
+            type: String,
+            required: false,
         }
     },
 }
@@ -37,6 +42,7 @@ export default {
 
 <style scoped lang="scss">
 @import "@/styles/variables.scss";
+
 .app-billet.card1 {
     position: relative;
     display: flex;
@@ -52,11 +58,61 @@ export default {
         box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.60);
     }
 
+    &.big {
+        height: 550px;
+
+        .img-container {
+            height: 100%;
+        }
+        
+        @media(max-width: $tablet) {
+            height: 348px;
+        }
+
+        @media(min-width: 1025px) {
+            .platforms_list {
+                padding: 30px;
+
+                &>li {
+                    margin: 0 15px 15px 0;
+
+                    span {
+                        padding: 6px 24px;
+                        font-size: 20px;
+                        line-height: 24px;
+                    }
+                }
+            }
+
+            .title {
+                left: 30px;
+                bottom: 30px;
+                width: calc(100% - 180px);
+                font-size: 34px;
+                line-height: 38px;
+            }
+
+            .rating-box {
+                right: 30px;
+                bottom: 30px;
+                font-size: 24px;
+                line-height: 38px;
+
+                svg {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+        }
+
+    }
+
     .img-container {
         position: relative;
         width: 100%;
         height: 160px;
         z-index: 0;
+
         &::after {
             position: absolute;
             content: '';
@@ -95,7 +151,7 @@ export default {
         padding: 20px;
         width: 100%;
 
-        & > li {
+        &>li {
             margin: 0 10px 10px 0;
 
             span {
@@ -149,5 +205,4 @@ export default {
             line-height: 18px;
         }
     }
-}
-</style>
+}</style>

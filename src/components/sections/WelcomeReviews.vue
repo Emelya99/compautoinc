@@ -4,9 +4,13 @@
             <div class="inner">
                 <div class="left-part">
 
-                    <!-- <div v-if="firstProduct">
-                        {{ firstProduct.name }}
-                    </div> -->
+                    <com-skeleton-card4 v-if="isLoading" />
+
+                    <com-app-billet-card1 v-if="firstProduct" :product="firstProduct" billet-extra-class="big" />
+
+                    <div v-if="error">
+                        {{ error }}
+                    </div>
 
                 </div>
                 <div class="right-part">
@@ -36,36 +40,29 @@
 <script>
 import { mapState } from 'vuex';
 import { actionTypes } from "@/store/modules/welcomeReviews";
+import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
 import ComAppBilletCard3 from "@/components/billets/app-billets/card3/AppBilletCard3";
 import ComSkeletonCard3 from '@/components/billets/partials/steletons/SkeletonCard3';
+import ComSkeletonCard4 from '@/components/billets/partials/steletons/SkeletonCard4';
 
 export default {
     name: 'ComWelcomeReviews',
     components: {
         ComAppBilletCard3,
-        ComSkeletonCard3
+        ComAppBilletCard1,
+        ComSkeletonCard3,
+        ComSkeletonCard4,
     },
     computed: {
         ...mapState({
             isLoading: state => state.welcomeReviews.isLoading,
-            products: state => state.welcomeReviews.data,
+            firstProduct: state => state.welcomeReviews.firstProduct,
+            otherProducts: state => state.welcomeReviews.otherProducts,
             error: state => state.welcomeReviews.error
         }),
     },
-    data() {
-        return {
-            firstProduct: null,
-            otherProducts: [],
-        }
-    },
-    watch: {
-        products() {
-            this.firstProduct = this.products[0];
-            this.otherProducts = this.products.slice(1);
-        }
-    },
     mounted() {
-        if (!this.products) {
+        if (!this.firstProduct || !this.otherProducts) {
             this.$store.dispatch(actionTypes.getWelcomeReviews, { countPage: 5, page: 1 });
         }
     },
@@ -106,6 +103,7 @@ export default {
 
     @media(max-width: 640px) {
         .left-part {
+            flex: initial;
             width: 100%;
             margin-bottom: 20px;
             padding: 0;

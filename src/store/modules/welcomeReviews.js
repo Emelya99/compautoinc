@@ -1,7 +1,8 @@
 import productsApi from '@/api/products';
 
 const state = {
-  data: null,
+  firstProduct: null,
+  otherProducts: [],
   isLoading: false,
   error: null,
 };
@@ -19,12 +20,12 @@ export const actionTypes = {
 const mutations = {
   [mutationTypes.getWelcomeReviewsStart](state) {
     state.isLoading = true;
-    state.data = null;
     state.error = null;
   },
   [mutationTypes.getWelcomeReviewsSuccess](state, payload) {
     state.isLoading = false;
-    state.data = payload;
+    state.firstProduct = payload[0];
+    state.otherProducts = payload.slice(1);
   },
   [mutationTypes.getWelcomeReviewsFailure](state, payload) {
     state.isLoading = false;
