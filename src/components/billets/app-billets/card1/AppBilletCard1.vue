@@ -46,6 +46,12 @@ export default {
     overflow: hidden;
     border-radius: 10px;
 
+    &:hover,
+    &:focus {
+        transform: scale(1.01);
+        box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.60);
+    }
+
     .img-container {
         position: relative;
         width: 100%;

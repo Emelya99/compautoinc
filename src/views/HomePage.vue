@@ -1,5 +1,6 @@
 <template>
   <div>
+    <com-welcome-reviews />
     <com-latest-reviews />
     <com-popular-reviews />
     <com-platforms />
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import ComWelcomeReviews from "@/components/sections/WelcomeReviews";
 import ComLatestReviews from "@/components/sections/LatestReviews";
 import ComPopularReviews from "@/components/sections/PopularReviews"
 import ComPlatforms from "@/components/sections/Platforms";
@@ -20,12 +22,13 @@ import ComGenres from '@/components/sections/Genres'
 export default {
   name: 'ComHomePage',
   components: {
+    ComWelcomeReviews,
     ComLatestReviews,
     ComUpcomingReviews,
     ComPlatforms,
     ComMostPopularGame,
     ComPopularReviews,
-    ComGenres
+    ComGenres,
   },
 }
 </script>

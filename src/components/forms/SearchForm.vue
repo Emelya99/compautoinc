@@ -99,12 +99,12 @@ export default {
                 this.loadMoreResults();
             }
         },
-        loadMoreResults: debounce(function () {
+        loadMoreResults() {
             this.page += 1;
             this.$store.dispatch(actionTypes.getLoadMoreSearch, { currentUserInput: this.search, page: this.page }).then(() => {
                 this.isSearchResultsOpened = true;
             })
-        }, 500),
+        },
         getSearch: debounce(function () {
             this.page = 1;
             this.$store.dispatch(actionTypes.getSearch, { currentUserInput: this.search, page: this.page }).then(() => {

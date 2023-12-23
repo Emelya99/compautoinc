@@ -9,18 +9,18 @@
                 <div class="right-part">
                     <ul class="btns-list">
                         <li>
-                            <button :class="{ active: page === 3 }" class="popular-btn" data-page="3"
+                            <button :class="{ active: page === 4 }" class="popular-btn" data-page="4"
                                 @click="changeProducts">
                                 Last month
                             </button>
                         </li>
                         <li>
-                            <button :class="{ active: page === 2 }" class="popular-btn" data-page="2"
+                            <button :class="{ active: page === 3 }" class="popular-btn" data-page="3"
                                 @click="changeProducts">Last
                                 year</button>
                         </li>
                         <li>
-                            <button :class="{ active: page === 1 }" class="popular-btn" data-page="1"
+                            <button :class="{ active: page === 2 }" class="popular-btn" data-page="2"
                                 @click="changeProducts">All
                                 time</button>
                         </li>
@@ -71,7 +71,7 @@ export default {
     },
     data() {
         return {
-            page: 3,
+            page: 4,
         }
     },
     mounted() {

@@ -2,7 +2,7 @@ import axios from '@/api/axios';
 
 const getSearchProducts = (currentUserInput, page) => {
   return axios
-    .get(`/games?search_exact=true&search_precise=true&page_size=10&search=${currentUserInput}&ordering=-metacritic&page=${page}`)
+    .get(`/games?search_exact=true&search_precise=true&page_size=10&search=${currentUserInput}&ordering=-rating&page=${page}`)
     .then((response) => response.data);
 };
 

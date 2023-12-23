@@ -8,13 +8,13 @@ const getLatestReviews = (countPage) => {
 
 const getPopularReviews = (countPage, page) => {
   return axios
-    .get(`/games?page_size=${countPage}&page=${page}&ordering=-rating`)
+    .get(`/games?page_size=${countPage}&page=${page}&ordering=-metarating`)
     .then((response) => response.data.results);
 };
 
 const getMostPopularGame = () => {
   return axios
-    .get(`/games/grand-theft-auto-v`)
+    .get(`/games/red-dead-redemption-2`)
     .then((response) => response.data);
 };
 

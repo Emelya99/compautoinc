@@ -1,5 +1,5 @@
 <template>
-    <content-loader class="content-loader" :width="388" :height="160" :speed="2" primaryColor="#f3f3f3"
+    <content-loader class="content-loader" :width="loaderWidth || 388" :height="loaderHeight || 160" :speed="2" primaryColor="#f3f3f3"
         secondaryColor="#ecebeb">
         <rect x="20" y="20" rx="10" ry="10" width="95" height="28" />
         <rect x="125" y="20" rx="10" ry="10" width="95" height="28" />
@@ -15,7 +15,17 @@ export default {
     name: 'ComSteletonCard1',
     components: {
         ContentLoader
-    }
+    },
+    data() {
+        return {
+            loaderWidth: null,
+            loaderHeight: null
+        };
+    },
+    mounted() {
+        this.loaderWidth = this.$el.clientWidth;
+        this.loaderHeight = this.$el.clientHeight;
+    },
 }
 </script>
 
