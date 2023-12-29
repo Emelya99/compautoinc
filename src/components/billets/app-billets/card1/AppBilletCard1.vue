@@ -115,6 +115,17 @@ export default {
             }
         }
 
+        @media(max-width: 1024px) {
+            .platforms_list {
+                &>li {
+                    margin: 0 10px 10px 0;
+                    span {
+                        padding: 4px 12px;
+                    }
+                }
+            }
+        }
+
     }
 
     .img-container {
@@ -193,6 +204,18 @@ export default {
             height: 24px;
             margin-right: 5px;
             color: $accent-color;
+        }
+    }
+
+    @media(max-width: 1024px) {
+        .platforms_list {
+            &>li {
+                margin: 0 5px 5px 0;
+
+                span {
+                    padding: 3px 10px;
+                }
+            }
         }
     }
 
