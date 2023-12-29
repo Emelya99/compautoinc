@@ -4,7 +4,7 @@
             <div class="top-part">
                 <div class="info-part">
                     <router-link :to="{ name: 'home' }" class="site-logo">
-                        <img src="@/assets/images/logo.svg" alt="logo">
+                        <img src="@/assets/images/logo.svg" alt="Site logo">
                     </router-link>
                     <p class="text">
                         Explore the digital landscape with Compautoinc, your premier destination for comprehensive

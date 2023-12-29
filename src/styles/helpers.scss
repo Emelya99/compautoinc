@@ -174,3 +174,11 @@ input[type="search"]::-moz-search-cancel {
 input[type="search"]::-ms-clear {
     display: none;
 }
+
+// Animations
+.fade-enter-active, .fade-leave-active {
+    transition: $base-transition;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}

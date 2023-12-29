@@ -5,7 +5,7 @@
 
                 <!-- Logo -->
                 <router-link :to="{ name: 'home' }" class="site-logo">
-                    <img src="@/assets/images/logo.svg" alt="logo">
+                    <img src="@/assets/images/logo.svg" alt="Site logo">
                 </router-link>
 
                 <!-- Nav Menu -->

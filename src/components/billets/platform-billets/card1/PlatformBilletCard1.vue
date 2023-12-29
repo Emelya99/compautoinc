@@ -1,8 +1,11 @@
 <template>
-    <router-link class="platform-billet card1"
-        :to="{ name: 'platformItem', params: { slug: `${platform.slug}` } }">
+    <router-link
+        class="platform-billet card1"
+        :to="{ name: 'platformItem', params: { slug: `${platform.slug}` } }"
+    >
         <span class="img-container">
-            <img :src="platform.image_background" :alt="platform.name">
+            <img v-if="platform.image_background" :src="platform.image_background" :alt="`${platform.name} background image`">
+            <img v-else src="@/assets/images/placeholder-game.png" :alt="`${platform.name} background image`">
         </span>
         <span class="concise-info">
             <span class="title ellipsis-multiply one">{{ platform.name }}</span>

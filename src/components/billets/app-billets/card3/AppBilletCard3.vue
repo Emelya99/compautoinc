@@ -1,5 +1,8 @@
 <template>
-    <router-link class="app-billet card3" :to="{ name: 'app', params: { slug: `${product.slug}` } }">
+    <router-link
+        class="app-billet card3"
+        :to="{ name: 'app', params: { slug: `${product.slug}` } }"
+    >
         <span class="img-container">
             <img v-if="product.background_image" :src="product.background_image" :alt="product.name">
             <img v-else src="@/assets/images/placeholder-game.png" :alt="product.name">

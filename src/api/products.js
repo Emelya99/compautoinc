@@ -2,7 +2,7 @@ import axios from '@/api/axios';
 
 const getLatestReviews = (countPage) => {
   return axios
-    .get(`/games?page_size=${countPage}&ordering=released`)
+    .get(`/games?page_size=${countPage}&ordering=-updated`)
     .then((response) => response.data.results);
 };
 

@@ -39,7 +39,6 @@ export default {
             }
             if (this.isSearchOpened && !searchBox.contains(e.target)) {
                 this.isSearchOpened = false;
-                return;
             }
         }
     },

@@ -1,37 +1,41 @@
 <template>
     <form class="search-form" ref="formBox" autocomplete="off">
-        <input class="searh-input" type="search" placeholder="Search" required v-model="search" @input="handleSearch" @click="handleClick">
-        <button class="sbmt-btn" type="submit">
+        <input class="searh-input" type="search" placeholder="Search" required v-model="search" @input="handleSearch"
+            @click="handleInputClick">
+        <button class="sbmt-btn" type="submit" aria-label="Send form">
             <svg class="svg-icons">
                 <use xlink:href="@/assets/images/icons.svg#search"></use>
             </svg>
         </button>
 
-        <div v-if="(isSearchResultsOpened || error) && search.length >= 2" class="search-results">
-            <ul ref="resultsBox" @scroll="resultsScroll">
-                <li v-if="error">
-                    <p class="info-message">{{ error }}</p>
-                </li>
+        <transition name="fade">
+            <div v-if="(isSearchResultsOpened || error) && search.length >= 2" class="search-results">
+                <ul ref="resultsBox" @scroll="resultsScroll">
+                    <li v-if="error">
+                        <p class="info-message">{{ error }}</p>
+                    </li>
 
-                <li v-else-if="products.length === 0 && !isLoading">
-                    <p class="info-message">No results found for your search.</p>
-                </li>
+                    <li v-else-if="products.length === 0 && !isLoading">
+                        <p class="info-message">No results found for your search.</p>
+                    </li>
 
-                <li v-for="product in products" :key="product.id">
-                    <router-link class="search-item" :to="{ name: 'app', params: { slug: `${product.slug}` } }">
-                        <span class="img-container">
-                            <img v-if="product.background_image" :src="product.background_image" :alt="product.name">
-                            <img v-else src="@/assets/images/placeholder-game.png" alt="img">
-                        </span>
-                        <span class="title ellipsis">{{ product.name }}</span>
-                    </router-link>
-                </li>
-            </ul>
+                    <li v-for="product in products" :key="product.id">
+                        <router-link class="search-item" :to="{ name: 'app', params: { slug: `${product.slug}` } }">
+                            <span class="img-container">
+                                <img v-if="product.background_image" :src="product.background_image" :alt="product.name">
+                                <img v-else src="@/assets/images/placeholder-game.png" alt="Placeholder game">
+                            </span>
+                            <span class="title ellipsis">{{ product.name }}</span>
+                        </router-link>
+                    </li>
+                </ul>
 
-            <div v-if="isLoading" class="loading-container">
-                <com-small-loader />
+                <div v-if="isLoading" class="loading-container">
+                    <com-small-loader />
+                </div>
             </div>
-        </div>
+        </transition>
+
     </form>
 </template>
 
@@ -86,7 +90,7 @@ export default {
                 this.isSearchResultsOpened = false;
             }
         },
-        handleClick() {
+        handleInputClick() {
             if (this.search.length >= 2 && this.products) {
                 this.isSearchResultsOpened = true;
             }
@@ -95,7 +99,7 @@ export default {
             const resultsBox = this.$refs.resultsBox;
 
             if (resultsBox.scrollTop + resultsBox.clientHeight + 5 >= resultsBox.scrollHeight && this.isNextPage) {
-                
+
                 this.loadMoreResults();
             }
         },

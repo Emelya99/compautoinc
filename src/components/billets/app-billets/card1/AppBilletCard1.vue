@@ -1,13 +1,15 @@
 <template>
-    <router-link class="app-billet card1" :class="billetExtraClass"
-        :to="{ name: 'app', params: { slug: `${product.slug}` } }">
+    <router-link
+            class="app-billet card1" :class="billetExtraClass"
+        :to="{ name: 'app', params: { slug: `${product.slug}` } }"
+    >
         <span class="img-container">
             <img v-if="product.background_image" :src="product.background_image" :alt="product.name">
             <img v-else src="@/assets/images/placeholder-game.png" :alt="product.name">
         </span>
         <span class="concise-info">
-            <ul class="platforms_list" v-if="product.parent_platforms">
-                <li v-for="(platform) in product.parent_platforms" :key="platform.platform.name">
+            <ul class="platforms_list" v-if="platforms">
+                <li v-for="platform in platforms" :key="platform.platform.id">
                     <span>{{ platform.platform.name }}</span>
                 </li>
             </ul>
@@ -36,6 +38,14 @@ export default {
             required: false,
         }
     },
+    data() {
+        return {
+            platforms: [],
+        }
+    },
+    mounted() {
+        this.platforms = this.product.parent_platforms.slice(0,5);
+    }
 }
 
 </script>
@@ -64,7 +74,7 @@ export default {
         .img-container {
             height: 100%;
         }
-        
+
         @media(max-width: $tablet) {
             height: 348px;
         }
@@ -205,4 +215,5 @@ export default {
             line-height: 18px;
         }
     }
-}</style>
+}
+</style>

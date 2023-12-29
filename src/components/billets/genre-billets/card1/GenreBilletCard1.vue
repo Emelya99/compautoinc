@@ -1,8 +1,11 @@
 <template>
-    <router-link class="genre-billet card1"
-        :to="{ name: 'genreItem', params: { slug: `${genre.slug}` } }">
+    <router-link
+        class="genre-billet card1"
+        :to="{ name: 'genreItem', params: { slug: `${genre.slug}` } }"
+    >
         <span class="img-container">
-            <img :src="genre.image_background" :alt="genre.name">
+            <img v-if="genre.image_background" :src="genre.image_background" :alt="`${genre.name} background image`">
+            <img v-else src="@/assets/images/placeholder-game.png" :alt="`${genre.name} background image`">
         </span>
         <span class="concise-info">
             <span class="title ellipsis-multiply one">{{ genre.name }}</span>

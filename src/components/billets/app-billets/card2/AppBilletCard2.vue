@@ -1,7 +1,11 @@
 <template>
-    <router-link class="app-billet card2" :to="{ name: 'app', params: { slug: `${product.slug}`}}">
+    <router-link 
+        class="app-billet card2"
+        :to="{ name: 'app', params: { slug: `${product.slug}`}}"
+    >
         <span class="img-container">
-            <img :src="product.background_image" :alt="product.name">
+            <img v-if="product.background_image" :src="product.background_image" :alt="product.name">
+            <img v-else src="@/assets/images/placeholder-game.png" :alt="product.name">
         </span>
         <span class="concise-info">
             <span class="title ellipsis-multiply one">{{ product.name }}</span>

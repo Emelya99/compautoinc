@@ -1,7 +1,7 @@
 <template>
     <div class="nav-container">
-        <nav class="nav-menu" :class="{ active: isMenuOpened }" ref="navMenuBox">
-            <button class="close-btn" ref="navMenuClose">
+        <nav class="nav-menu" :class="{ 'active': isMenuOpened }" ref="navMenuBox">
+            <button class="close-btn" aria-label="Close menu" ref="navMenuClose">
                 <svg class="svg-icons">
                     <use xlink:href="@/assets/images/icons.svg#close-btn"></use>
                 </svg>
@@ -19,113 +19,120 @@
                     </router-link>
                 </li>
                 <li class="dropdown" ref="dropdownBox">
-                    <button class="nav-link dropdown-link" :class="{ active: isDropdownOpened }" ref="dropdownBtn">
+                    <button class="nav-link dropdown-link" :class="{ 'active': isDropdownOpened }" ref="dropdownBtn">
                         Categories
                         <svg class="svg-icons">
                             <use xlink:href="@/assets/images/icons.svg#arrow-bottom"></use>
                         </svg>
                     </button>
-                    <div v-if="isDropdownOpened" class="dropdown-box">
-                        <ul class="dropdown-list">
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'action' } }" class="ellipsis">
-                                    Action
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'adventure' } }" class="ellipsis">
-                                    Adventure
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'arcade' } }" class="ellipsis">
-                                    Arcade
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'board-games' } }" class="ellipsis">
-                                    Board Games
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'card' } }" class="ellipsis">
-                                    Card
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'casual' } }" class="ellipsis">
-                                    Casual
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'educational' } }" class="ellipsis">
-                                    Educational
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'family' } }" class="ellipsis">
-                                    Family
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'fighting' } }" class="ellipsis">
-                                    Fighting
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'indie' } }" class="ellipsis">
-                                    Indie
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'massively-multiplayer' } }"
-                                    class="ellipsis">
-                                    Massively Multiplayer
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'platformer' } }" class="ellipsis">
-                                    Platformer
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'puzzle' } }" class="ellipsis">
-                                    Puzzle
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'racing' } }" class="ellipsis">
-                                    Racing
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'role-playing-games-rpg' } }"
-                                    class="ellipsis">
-                                    RPG
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'shooter' } }" class="ellipsis">
-                                    Shooter
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'simulation' } }" class="ellipsis">
-                                    Simulation
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'sports' } }" class="ellipsis">
-                                    Sports
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'genreItem', params: { slug: 'strategy' } }" class="ellipsis">
-                                    Strategy
-                                </router-link>
-                            </li>
-                        </ul>
-                    </div>
+                    <transition name="fade">
+                        <div v-if="isDropdownOpened" class="dropdown-box">
+                            <ul class="dropdown-list">
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'action' } }" class="ellipsis">
+                                        Action
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'adventure' } }"
+                                        class="ellipsis">
+                                        Adventure
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'arcade' } }" class="ellipsis">
+                                        Arcade
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'board-games' } }"
+                                        class="ellipsis">
+                                        Board Games
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'card' } }" class="ellipsis">
+                                        Card
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'casual' } }" class="ellipsis">
+                                        Casual
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'educational' } }"
+                                        class="ellipsis">
+                                        Educational
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'family' } }" class="ellipsis">
+                                        Family
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'fighting' } }" class="ellipsis">
+                                        Fighting
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'indie' } }" class="ellipsis">
+                                        Indie
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'massively-multiplayer' } }"
+                                        class="ellipsis">
+                                        Massively Multiplayer
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'platformer' } }"
+                                        class="ellipsis">
+                                        Platformer
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'puzzle' } }" class="ellipsis">
+                                        Puzzle
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'racing' } }" class="ellipsis">
+                                        Racing
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'role-playing-games-rpg' } }"
+                                        class="ellipsis">
+                                        RPG
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'shooter' } }" class="ellipsis">
+                                        Shooter
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'simulation' } }"
+                                        class="ellipsis">
+                                        Simulation
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'sports' } }" class="ellipsis">
+                                        Sports
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'genreItem', params: { slug: 'strategy' } }" class="ellipsis">
+                                        Strategy
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </div>
+                    </transition>
                 </li>
                 <li>
                     <router-link class="nav-link" :to="{ name: 'platforms' }">
@@ -142,7 +149,7 @@
                 <com-social-list style-type="light" />
             </div>
         </nav>
-        <button class="burger-btn" ref="navMenuBtn">
+        <button class="burger-btn" aria-label="Open menu" ref="navMenuBtn">
             <svg class="svg-icons">
                 <use xlink:href="@/assets/images/icons.svg#burger-btn"></use>
             </svg>
@@ -196,7 +203,6 @@ export default {
             }
             if (this.isDropdownOpened && !dropdownBox.contains(e.target)) {
                 this.isDropdownOpened = false;
-                return;
             }
         },
         toggleMenu(e) {
@@ -211,7 +217,6 @@ export default {
             if (this.isMenuOpened && (navMenuClose.contains(e.target) || !navMenuBox.contains(e.target))) {
                 this.isMenuOpened = false;
                 this.removeDisabledMethods();
-                return;
             }
         },
         addDisabledSettings() {
@@ -258,23 +263,19 @@ export default {
             &>.dropdown-link {
                 display: flex;
                 align-items: center;
+                
+                svg {
+                    margin-left: 8px;
+                    font-size: 20px;
+                    transition: $base-transition;
+                }
 
                 &.active {
                     color: $accent-color;
 
                     svg {
-                        top: -3px;
-                        left: -3px;
-                        transform: rotate(-180deg);
+                        transform: rotate(180deg);
                     }
-                }
-
-                svg {
-                    position: relative;
-                    top: 4px;
-                    font-size: 14px;
-                    margin-left: 10px;
-                    transition: $base-transition;
                 }
             }
         }
@@ -329,7 +330,7 @@ export default {
 
     @media(max-width: 1300px) {
         .nav-list {
-            & > li {
+            &>li {
                 &:not(:last-child) {
                     margin-right: 30px;
                 }
