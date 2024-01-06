@@ -6,7 +6,12 @@
       <com-header />
 
       <main>
+
+          <!-- Breadcrumbs -->
+          <com-breadcrumbs v-show="pageName !== 'home'" />
+
           <router-view />
+
       </main>
 
     </div>
@@ -20,12 +25,19 @@
 <script>
 import ComHeader from '@/components/header/Header';
 import ComFooter from '@/components/footer/Footer';
+import ComBreadcrumbs from '@/components/breadcrumbs/Breadcrumbs'
 
 export default {
   name: 'ComApp',
   components: {
     ComHeader,
-    ComFooter
+    ComFooter,
+    ComBreadcrumbs,
+  },
+  computed: {
+    pageName() {
+      return this.$route.name;
+    }
   },
 }
 
