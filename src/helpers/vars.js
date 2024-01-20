@@ -1,0 +1,1 @@
+export const PLATFORMS_PAGINATION_LIMIT = 4;

@@ -4,7 +4,8 @@ import Vuex from 'vuex';
 import welcomeReviews from "@/store/modules/welcomeReviews";
 import latestReviews from "@/store/modules/latestReviews";
 import popularReviews from "@/store/modules/popularReviews";
-import platforms from "@/store/modules/platforms";
+import allPlatforms from "@/store/modules/platforms/allPlatforms";
+import parentPlatforms from "@/store/modules/platforms/parentPlatforms";
 import mostPopularGame from "@/store/modules/mostPopularGame";
 import upcomingReviews from "@/store/modules/upcomingReviews";
 import genres from "@/store/modules/genres";
@@ -21,7 +22,8 @@ export default new Vuex.Store({
     welcomeReviews,
     latestReviews,
     popularReviews,
-    platforms,
+    allPlatforms,
+    parentPlatforms,
     mostPopularGame,
     upcomingReviews,
     genres,

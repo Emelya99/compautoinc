@@ -254,7 +254,7 @@ export default {
                 line-height: 24px;
                 color: $secondary-color;
 
-                &.router-link-exact-active,
+                &.router-link-active,
                 &:hover {
                     color: $accent-color;
                 }

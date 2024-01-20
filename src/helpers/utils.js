@@ -11,3 +11,14 @@ export const countOfBilletsOnDevices = (desktopCount, tabletCount, mobileCount) 
 }
 
 export const isDesktop = innerWidth > 1024;
+
+// For Pagination Component
+export const range = (start, end) => {
+    const result = [];
+  
+    for (let i = start; i <= end; i++) {
+      result.push(i);
+    }
+  
+    return result;
+};

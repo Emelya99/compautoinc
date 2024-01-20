@@ -27,7 +27,7 @@ export default {
     name: 'ComBreadcrumbs',
     computed: {
         fullPathArr() {
-            return this.$route.fullPath.split('/').slice(1);
+            return this.$route.path.split('/').slice(1);
         },
         firstElement() {
             return this.fullPathArr.slice(0,-1)[0];

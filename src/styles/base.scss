@@ -16,6 +16,7 @@ body {
 	font-size: $main-font-size;
 	line-height: 23px;
 	color: $main-color;
+	scroll-behavior: smooth;
 	-webkit-font-smoothing: antialiased;
 }
 

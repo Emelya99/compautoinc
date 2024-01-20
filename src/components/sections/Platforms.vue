@@ -22,7 +22,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/platforms";
+import { actionTypes } from "@/store/modules/platforms/allPlatforms";
 import ComHeading from "@/components/partials/Heading";
 import ComPlatformBilletCard1 from '@/components/billets/platform-billets/card1/PlatformBilletCard1';
 import ComSteletonCard2 from '@/components/billets/partials/steletons/SkeletonCard2';
@@ -36,14 +36,14 @@ export default {
     },
     computed: {
         ...mapState({
-            isLoading: state => state.platforms.isLoading,
-            platforms: state => state.platforms.data,
-            error: state => state.platforms.error
+            isLoading: state => state.allPlatforms.isLoading,
+            platforms: state => state.allPlatforms.data,
+            error: state => state.allPlatforms.error
         }),
     },
     mounted() {
         if (!this.platforms) {
-            this.$store.dispatch(actionTypes.getPlatforms, { countPage: 6 });
+            this.$store.dispatch(actionTypes.getAllPlatforms, { countPage: 6 });
         }
     }
 }
