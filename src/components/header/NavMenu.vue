@@ -9,12 +9,12 @@
             <h3 class="title medium">Menu</h3>
             <ul class="nav-list">
                 <li>
-                    <router-link class="nav-link" :to="{ name: 'home' }">
+                    <router-link class="nav-link" :to="{ name: 'home' }" :class="{active: slug === '/'}">
                         Home
                     </router-link>
                 </li>
                 <li>
-                    <router-link class="nav-link" :to="{ name: 'reviews' }">
+                    <router-link class="nav-link" :to="{ name: 'reviews' }" :class="{active: slug === '/reviews'}">
                         Reviews
                     </router-link>
                 </li>
@@ -135,12 +135,12 @@
                     </transition>
                 </li>
                 <li>
-                    <router-link class="nav-link" :to="{ name: 'platforms' }">
+                    <router-link class="nav-link" :to="{ name: 'platforms' }" :class="{active: slug === '/platforms'}">
                         Platforms
                     </router-link>
                 </li>
                 <li>
-                    <router-link class="nav-link" :to="{ name: 'genres' }">
+                    <router-link class="nav-link" :to="{ name: 'genres' }" :class="{active: slug === '/genres'}">
                         Genres
                     </router-link>
                 </li>
@@ -254,7 +254,7 @@ export default {
                 line-height: 24px;
                 color: $secondary-color;
 
-                &.router-link-active,
+                &.active,
                 &:hover {
                     color: $accent-color;
                 }
