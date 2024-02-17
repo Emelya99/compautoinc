@@ -94,36 +94,38 @@ export default {
 <style scoped lang="scss">
 @import "@/styles/variables.scss";
 
-.btns-list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: calc(100% + 20px);
-    margin: -10px;
-
-    li {
-        padding: 10px;
-    }
-}
-
-@media(max-width: $tablet) {
+.popular-reviews_section {
     .btns-list {
-        width: calc(100% + 10px);
-        margin: -5px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: calc(100% + 20px);
+        margin: -10px;
 
         li {
-            padding: 5px;
+            padding: 10px;
         }
     }
-}
 
-@media(max-width: 640px) {
-    .top-part-section {
-        flex-direction: column;
+    @media(max-width: $tablet) {
+        .btns-list {
+            width: calc(100% + 10px);
+            margin: -5px;
 
-        &>.left-part {
-            padding: 0;
-            margin-bottom: 20px;
+            li {
+                padding: 5px;
+            }
+        }
+    }
+
+    @media(max-width: 640px) {
+        .top-part-section {
+            flex-direction: column;
+
+            &>.left-part {
+                padding: 0;
+                margin-bottom: 20px;
+            }
         }
     }
 }

@@ -1,8 +1,20 @@
 <template>
     <section class="platforms_section section">
         <div class="container">
-            <com-heading title-content="Chose your platform"
-                text-content="Our blog has selected game reviews for all platforms and operating systems" />
+            <div class="top-part-section">
+                <div class="left-part">
+                    <com-heading title-content="Chose your platform"
+                        text-content="Our blog has selected game reviews for all platforms and operating systems" />
+                </div>
+                <div class="right-part">
+                    <router-link class="default-btn background" :to="{ name: 'platforms' }">
+                        More platforms
+                        <svg class="svg-icons">
+                            <use xlink:href="@/assets/images/icons.svg#btn-arrow"></use>
+                        </svg>
+                    </router-link>
+                </div>
+            </div>
             <div v-if="error">
                 {{ error }}
             </div>

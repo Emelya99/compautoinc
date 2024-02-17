@@ -251,6 +251,10 @@ export default {
 
     @media(max-width: $mobile) {
         padding: 30px 0;
+
+        .top-part {
+            padding-bottom: 0;
+        }
         .right-part {
             flex-wrap: wrap;
             width: calc(100% + 20px);

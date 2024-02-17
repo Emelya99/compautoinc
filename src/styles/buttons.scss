@@ -42,15 +42,8 @@
             font-size: 20px;
         }
     }
-    @media(max-width: 640px) {
-        width: 131px;
-        height: 34px;
-        font-size: 14px;
-        line-height: 18px;
-        svg {
-            margin-left: 2px;
-            font-size: 16px;
-        }
+    @media(max-width: 420px) {
+        width: 100%;
     }
 }
 

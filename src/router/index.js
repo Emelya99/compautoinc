@@ -1,63 +1,72 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import HomePage from '@/views/HomePage.vue';
-import ReviewsPage from '@/views/ReviewsPage.vue';
-import AppPage from '@/views/AppPage.vue';
-import DownloadPage from '@/views/DownloadPage.vue';
-import PlatformsPage from '@/views/PlatformsPage.vue';
-import PlatformItemPage from '@/views/PlatformItemPage.vue';
-import GenresPage from '@/views/GenresPage.vue';
-import GenreItemPage from '@/views/GenreItemPage.vue';
-import NotFoundPage from '@/views/NotFoundPage.vue';
-
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomePage,
+    component: () => import('@/views/HomePage.vue'),
+    meta: {
+      title: 'Home',
+    },
   },
   {
     path: '/reviews',
     name: 'reviews',
-    component: ReviewsPage,
+    component: () => import('@/views/ReviewsPage.vue'),
+    meta: {
+      title: 'Reviews',
+    },
   },
   {
     path: '/reviews/:slug',
     name: 'app',
-    component: AppPage,
-  },
-  {
-    path: '/reviews/:slug/get',
-    name: 'download',
-    component: DownloadPage,
+    component: () => import('@/views/AppPage.vue'),
+    meta: {
+      title: 'AppPage',
+    },
   },
   {
     path: '/platforms',
     name: 'platforms',
-    component: PlatformsPage,
+    component: () => import('@/views/PlatformsPage.vue'),
+    meta: {
+      title: 'PlatformsPage',
+    },
   },
   {
     path: '/platforms/:slug',
     name: 'platformItem',
-    component: PlatformItemPage,
+    component: () => import('@/views/PlatformItemPage.vue'),
+    meta: {
+      title: 'PlatformItemPage',
+    },
   },
   {
     path: '/genres',
     name: 'genres',
-    component: GenresPage,
+    component: () => import('@/views/GenresPage.vue'),
+    meta: {
+      title: 'GenresPage',
+    },
   },
   {
     path: '/genres/:slug',
     name: 'genreItem',
-    component: GenreItemPage,
+    component: () => import('@/views/GenreItemPage.vue'),
+    meta: {
+      title: 'GenreItemPage',
+    },
   },
   {
     path: '*',
     name: 'notFound',
-    component: NotFoundPage,
+    component: () => import('@/views/NotFoundPage.vue'),
+    meta: {
+      title: 'NotFoundPage',
+    },
   },
 ];
 
