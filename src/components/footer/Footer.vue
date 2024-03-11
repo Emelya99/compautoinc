@@ -62,12 +62,12 @@
                                 </router-link>
                             </li>
                             <li>
-                                <router-link :to="{ name: 'platformItem', params: { slug: 'playstation' } }" class="ellipsis">
+                                <router-link :to="{ name: 'platformItem', params: { slug: 'playstation5' } }" class="ellipsis">
                                     PlayStation
                                 </router-link>
                             </li>
                             <li>
-                                <router-link :to="{ name: 'platformItem', params: { slug: 'xbox' } }" class="ellipsis">
+                                <router-link :to="{ name: 'platformItem', params: { slug: 'xbox-series-x' } }" class="ellipsis">
                                     Xbox
                                 </router-link>
                             </li>

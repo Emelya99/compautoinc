@@ -136,6 +136,25 @@
         -webkit-line-clamp: 8;
     }
 }
+.default-styles {
+    img {
+        display: block;
+    }
+    p {
+        margin: 0;
+        font-size: 18px;
+        line-height: 24px;
+        & + p {
+            margin-top: 10px;
+        }
+    }
+    @media(max-width: 640px) {
+        p {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+}
 
 .img-container {
     display: block;

@@ -22,3 +22,8 @@ export const range = (start, end) => {
   
     return result;
 };
+
+// Scroll To Top Function
+export const scrollToTop = () => {
+    window.scrollTo(0, 0);
+}

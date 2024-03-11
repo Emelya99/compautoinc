@@ -37,6 +37,7 @@
 import { mapState } from 'vuex';
 import { actionTypes } from "@/store/modules/platforms/parentPlatforms";
 import { PLATFORMS_PAGINATION_LIMIT as limit } from "@/helpers/vars";
+import { scrollToTop } from '@/helpers/utils';
 import ComHeading from "@/components/partials/Heading";
 import ComPlatformBilletCard1 from '@/components/billets/platform-billets/card1/PlatformBilletCard1';
 import ComSteletonCard2 from '@/components/billets/partials/steletons/SkeletonCard2';
@@ -68,8 +69,8 @@ export default {
     },
     watch: {
         currentPage() {
+            scrollToTop();
             this.getPlatforms();
-            this.scrollToTop();
         },
     },
     mounted() {
@@ -78,9 +79,6 @@ export default {
     methods: {
         getPlatforms() {
             this.$store.dispatch(actionTypes.getParentPlatforms, { countPage: this.limit, page: this.currentPage });
-        },
-        scrollToTop() {
-            window.scrollTo(0, 0);
         }
     }
 }

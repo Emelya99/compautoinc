@@ -6,6 +6,13 @@ const getGenres = (pageCount) => {
     .then((response) => response.data.results);
 };
 
+const getSingleGenre = (slug) => {
+  return axios
+    .get(`/genres/${slug}`)
+    .then((response => response.data))
+}
+
 export default {
     getGenres,
+    getSingleGenre
 };
