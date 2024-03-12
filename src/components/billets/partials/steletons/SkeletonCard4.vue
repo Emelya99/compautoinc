@@ -18,7 +18,7 @@ import { ContentLoader } from "vue-content-loader";
 import { isDesktop } from "@/helpers/utils";
 
 export default {
-    name: 'ComSteletonCard3',
+    name: 'ComSteletonCard4',
     components: {
         ContentLoader
     },

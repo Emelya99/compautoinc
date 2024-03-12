@@ -7,6 +7,7 @@ import popularReviews from "@/store/modules/popularReviews";
 import allPlatforms from "@/store/modules/platforms/allPlatforms";
 import parentPlatforms from "@/store/modules/platforms/parentPlatforms";
 import singlePlatform from "@/store/modules/platforms/singlePlatform";
+import bestGamesByPlatform from "@/store/modules/platforms/bestGamesByPlatform";
 import mostPopularGame from "@/store/modules/mostPopularGame";
 import upcomingReviews from "@/store/modules/upcomingReviews";
 import genres from "@/store/modules/genres";
@@ -27,6 +28,7 @@ export default new Vuex.Store({
     allPlatforms,
     parentPlatforms,
     singlePlatform,
+    bestGamesByPlatform,
     mostPopularGame,
     upcomingReviews,
     genres,

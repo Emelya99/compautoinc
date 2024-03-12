@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <com-single-item-info-container
             :singleItemIsLoading="singleGenreIsLoading"
             :singleItemData="singleGenreData"

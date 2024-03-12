@@ -1,5 +1,5 @@
 <template>
-    <section class="single-item-info section">
+    <div class="single-item-info">
         <div class="heading-container">
             <com-heading :title-content="`${singleItemData.name}`" />
         </div>
@@ -9,7 +9,7 @@
             </div>
             <div v-if="singleItemData.description" v-html="singleItemData.description" class="default-styles"></div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>

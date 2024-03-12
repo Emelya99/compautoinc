@@ -1,8 +1,8 @@
 import axios from '@/api/axios';
 
-const getGenres = (pageCount) => {
+const getGenres = (countPage) => {
   return axios
-    .get(`/genres?page_size=${pageCount}`)
+    .get(`/genres?page_size=${countPage}`)
     .then((response) => response.data.results);
 };
 

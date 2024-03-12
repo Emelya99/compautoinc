@@ -1,8 +1,6 @@
 <template>
-    <div class="container">
-        <div v-if="singleItemIsLoading">
-            Loading...
-        </div>
+    <div>
+        <com-single-item-info-skeleton v-if="singleItemIsLoading" />
         <com-single-item-info 
             v-if="singleItemData" 
             :singleItemData="singleItemData"
@@ -13,13 +11,15 @@
 
 <script>
 import ComSingleItemInfo from "@/components/sections/singleItems/SingleItemInfo";
+import ComSingleItemInfoSkeleton from "@/components/sections/singleItems/SingleItemInfoSkeleton";
 import ComErrorMessage from "@/components/partials/ErrorMessage";
 
 export default {
     name: 'ComSingleItemInfoContainer',
     components: {
         ComSingleItemInfo,
-        ComErrorMessage
+        ComSingleItemInfoSkeleton,
+        ComErrorMessage,
     },
     props: {
         singleItemIsLoading: {

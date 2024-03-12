@@ -1,14 +1,14 @@
 import axios from '@/api/axios';
 
-const getAllPlatforms = (pageCount) => {
+const getAllPlatforms = (countPage) => {
   return axios
-    .get(`/platforms?page_size=${pageCount}`)
+    .get(`/platforms?page_size=${countPage}`)
     .then((response) => response.data.results);
 };
 
-const getParentPlatforms = (pageCount, page) => {
+const getParentPlatforms = (countPage, page) => {
   return axios
-    .get(`/platforms/lists/parents?page_size=${pageCount}&page=${page}`)
+    .get(`/platforms/lists/parents?page_size=${countPage}&page=${page}`)
 };
 
 const getSinglePlatform = (slug) => {
@@ -17,10 +17,10 @@ const getSinglePlatform = (slug) => {
     .then((response => response.data))
 }
 
-const getBestGamesByPlatform = (platformId) => {
+const getBestGamesByPlatform = (platformId, countPage) => {
   return axios
-    .get(`/games?platforms=${platformId}&ordering=-metarating&limit=12`)
-    .then((response => response.data))
+    .get(`/games?platforms=${platformId}&ordering=-metarating&page_size=${countPage}`)
+    .then((response => response.data.results))
 }
 
 export default {
