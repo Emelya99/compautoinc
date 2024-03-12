@@ -1,12 +1,14 @@
 <template>
     <div class="container">
+
         <section class="section">
             <com-single-item-info-container
-            :singleItemIsLoading="singlePlatformIsLoading"
-            :singleItemData="singlePlatformData"
-            :singleItemError="singlePlatformError"
+                :singleItemIsLoading="singlePlatformIsLoading"
+                :singleItemData="singlePlatformData"
+                :singleItemError="singlePlatformError"
             />
         </section>
+
         <div>
             <com-error-message v-if="bestGamesError" :errorMessage="bestGamesError" />
             <ul v-if="bestGamesIsLoading" class="grid-list style-1">
@@ -20,8 +22,8 @@
                 </li>
             </ul>
         </div>
+        
     </div>
-
 </template>
 
 <script>

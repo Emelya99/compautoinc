@@ -1,16 +1,15 @@
 <template>
     <section class="welcome-reviews_section section">
         <div class="container">
+
+            <com-error-message v-if="error" :errorMessage="error" />
+            
             <div class="inner">
                 <div class="left-part">
 
                     <com-skeleton-card4 v-if="isLoading" />
 
                     <com-app-billet-card1 v-if="firstProduct" :product="firstProduct" billet-extra-class="big" />
-
-                    <div v-if="error">
-                        {{ error }}
-                    </div>
 
                 </div>
                 <div class="right-part">
@@ -27,10 +26,6 @@
                         </li>
                     </ul>
 
-                    <div v-if="error">
-                        {{ error }}
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -44,6 +39,7 @@ import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletC
 import ComAppBilletCard3 from "@/components/billets/app-billets/card3/AppBilletCard3";
 import ComSkeletonCard3 from '@/components/billets/partials/steletons/SkeletonCard3';
 import ComSkeletonCard4 from '@/components/billets/partials/steletons/SkeletonCard4';
+import ComErrorMessage from "@/components/partials/ErrorMessage";
 
 export default {
     name: 'ComWelcomeReviews',
@@ -52,6 +48,7 @@ export default {
         ComAppBilletCard1,
         ComSkeletonCard3,
         ComSkeletonCard4,
+        ComErrorMessage,
     },
     computed: {
         ...mapState({

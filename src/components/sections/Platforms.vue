@@ -1,6 +1,7 @@
 <template>
     <section class="platforms_section section">
         <div class="container">
+
             <div class="top-part-section">
                 <div class="left-part">
                     <com-heading title-content="Chose your platform"
@@ -15,19 +16,21 @@
                     </router-link>
                 </div>
             </div>
-            <div v-if="error">
-                {{ error }}
-            </div>
+
+            <com-error-message v-if="error" :errorMessage="error" />
+
             <ul v-if="isLoading" class="grid-list style-1">
                 <li v-for="index in 6" :key="index">
                     <com-steleton-card2 />
                 </li>
             </ul>
+
             <ul v-if="platforms" class="grid-list style-1">
                 <li v-for="platform in platforms" :key="platform.id">
                     <com-platform-billet-card1 :platform="platform" />
                 </li>
             </ul>
+            
         </div>
     </section>
 </template>
@@ -38,13 +41,15 @@ import { actionTypes } from "@/store/modules/platforms/allPlatforms";
 import ComHeading from "@/components/partials/Heading";
 import ComPlatformBilletCard1 from '@/components/billets/platform-billets/card1/PlatformBilletCard1';
 import ComSteletonCard2 from '@/components/billets/partials/steletons/SkeletonCard2';
+import ComErrorMessage from "@/components/partials/ErrorMessage";
 
 export default {
     name: 'ComPlatforms',
     components: {
         ComHeading,
         ComPlatformBilletCard1,
-        ComSteletonCard2
+        ComSteletonCard2,
+        ComErrorMessage
     },
     computed: {
         ...mapState({

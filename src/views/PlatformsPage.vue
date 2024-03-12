@@ -1,14 +1,13 @@
 <template>
     <section class="platforms_section">
         <div class="container">
+            
             <com-heading
                 title-content="All Platforms"
                 text-content="Explore gaming across platforms — consoles, PCs, mobile — for your ideal setup with the latest releases." 
             />
 
-            <div v-if="error">
-                {{ error }}
-            </div>
+            <com-error-message v-if="error" :errorMessage="error" />
 
             <div v-if="parentPlatforms" class="platforms_content">
                 <div class="item" v-for="parentPlatform in parentPlatforms.results" :key="parentPlatform.id">
@@ -42,6 +41,7 @@ import ComHeading from "@/components/partials/Heading";
 import ComPlatformBilletCard1 from '@/components/billets/platform-billets/card1/PlatformBilletCard1';
 import ComSteletonCard2 from '@/components/billets/partials/steletons/SkeletonCard2';
 import ComPagination from '@/components/paginations/Pagination';
+import ComErrorMessage from "@/components/partials/ErrorMessage";
 
 export default {
     name: 'ComPlatformsPage',
@@ -50,6 +50,7 @@ export default {
         ComPlatformBilletCard1,
         ComSteletonCard2,
         ComPagination,
+        ComErrorMessage,
     },
     computed: {
         ...mapState({
