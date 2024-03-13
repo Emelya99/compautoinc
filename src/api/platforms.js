@@ -17,15 +17,8 @@ const getSinglePlatform = (slug) => {
     .then((response => response.data))
 }
 
-const getBestGamesByPlatform = (platformId, countPage) => {
-  return axios
-    .get(`/games?platforms=${platformId}&ordering=-metarating&page_size=${countPage}`)
-    .then((response => response.data.results))
-}
-
 export default {
   getAllPlatforms,
   getParentPlatforms,
   getSinglePlatform,
-  getBestGamesByPlatform
 };

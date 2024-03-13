@@ -34,7 +34,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/welcomeReviews";
+import { actionTypes } from "@/store/modules/products/welcomeReviews";
 import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
 import ComAppBilletCard3 from "@/components/billets/app-billets/card3/AppBilletCard3";
 import ComSkeletonCard3 from '@/components/billets/partials/steletons/SkeletonCard3';

@@ -29,7 +29,7 @@
 <script>
 import { mapState } from 'vuex';
 import { actionTypes as singlePlatformAction } from "@/store/modules/platforms/singlePlatform";
-import { actionTypes as bestGamesByPlatform } from "@/store/modules/platforms/bestGamesByPlatform";
+import { actionTypes as bestGamesByPlatform } from "@/store/modules/products/bestGamesByPlatform";
 import { PLATFORM_ITEM_BEST_GAMES_LIMIT as limit } from "@/helpers/vars";
 import { scrollToTop } from '@/helpers/utils';
 import ComSingleItemInfoContainer from "@/components/sections/singleItems/SingleItemInfoContainer";

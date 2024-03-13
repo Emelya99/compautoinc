@@ -1,4 +1,4 @@
-import platformsApi from '@/api/platforms';
+import productsApi from '@/api/products';
 
 const state = {
   data: null,
@@ -36,7 +36,7 @@ const actions = {
   [actionTypes.getBestGames](context, { platformId, countPage }) {
     return new Promise((resolve) => {
       context.commit(mutationTypes.getBestGamesStart);
-      platformsApi
+      productsApi
         .getBestGamesByPlatform(platformId,countPage)
         .then((data) => {
           context.commit(mutationTypes.getBestGamesSuccess, data);

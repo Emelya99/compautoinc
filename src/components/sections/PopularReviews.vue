@@ -49,7 +49,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/popularReviews";
+import { actionTypes } from "@/store/modules/products/popularReviews";
 import { countOfBilletsOnDevices } from '@/helpers/utils';
 import ComHeading from "@/components/partials/Heading";
 import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
@@ -135,3 +135,4 @@ export default {
     }
 }
 </style>
+@/store/modules/products/popularReviews

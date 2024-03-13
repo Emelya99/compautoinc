@@ -24,9 +24,23 @@ const getUpcomingReviews = (countPage) => {
     .then((response) => response.data.results);
 };
 
+const getBestGamesByPlatform = (platformId, countPage) => {
+  return axios
+    .get(`/games?platforms=${platformId}&ordering=-metarating&page_size=${countPage}`)
+    .then((response => response.data.results))
+}
+
+const getSearchProducts = (currentUserInput, page) => {
+  return axios
+    .get(`/games?search_exact=true&search_precise=true&page_size=10&search=${currentUserInput}&ordering=-rating&page=${page}`)
+    .then((response) => response.data);
+};
+
 export default {
   getLatestReviews,
   getPopularReviews,
   getUpcomingReviews,
   getMostPopularGame,
+  getBestGamesByPlatform,
+  getSearchProducts,
 };

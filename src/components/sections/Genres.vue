@@ -37,7 +37,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/genres";
+import { actionTypes } from "@/store/modules/genres/genres";
 import ComHeading from "@/components/partials/Heading";
 import ComGenreBilletCard1 from '@/components/billets/genre-billets/card1/GenreBilletCard1';
 import ComSteletonCard2 from '@/components/billets/partials/steletons/SkeletonCard2';
@@ -64,4 +64,4 @@ export default {
         }
     }
 }
-</script>
+</script>@/store/modules/genres/genres

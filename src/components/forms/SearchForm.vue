@@ -41,7 +41,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/search";
+import { actionTypes } from "@/store/modules/products/search";
 import debounce from 'lodash.debounce';
 import ComSmallLoader from '@/components/partials/loaders/SmallLoader';
 
@@ -278,4 +278,4 @@ export default {
         }
     }
 }
-</style>
+</style>@/store/modules/products/search

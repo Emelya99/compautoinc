@@ -36,7 +36,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/latestReviews";
+import { actionTypes } from "@/store/modules/products/latestReviews";
 import { countOfBilletsOnDevices } from '@/helpers/utils';
 import ComHeading from "@/components/partials/Heading";
 import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";

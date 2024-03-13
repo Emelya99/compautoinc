@@ -21,7 +21,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/mostPopularGame";
+import { actionTypes } from "@/store/modules/products/mostPopularGame";
 import ComHeading from "@/components/partials/Heading";
 import ComAppBilletCard2 from '@/components/billets/app-billets/card2/AppBilletCard2';
 import ComErrorMessage from "@/components/partials/ErrorMessage";
@@ -46,4 +46,4 @@ export default {
         }
     }
 }
-</script>
+</script>@/store/modules/products/mostPopularGame

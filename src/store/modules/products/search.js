@@ -1,4 +1,4 @@
-import searchApi from '@/api/search';
+import productsApi from '@/api/products';
 
 const state = {
   data: [],
@@ -63,7 +63,7 @@ const actions = {
     const userText = currentUserInput.split(" ").join("-");
     return new Promise((resolve) => {
       context.commit(mutationTypes.getSearchStart);
-      searchApi
+      productsApi
         .getSearchProducts(userText, page)
         .then((data) => {
           context.commit(mutationTypes.getSearchSuccess, data);
@@ -80,7 +80,7 @@ const actions = {
     const userText = currentUserInput.split(" ").join("-");
     return new Promise((resolve) => {
       context.commit(mutationTypes.getLoadMoreSearchStart);
-      searchApi
+      productsApi
         .getSearchProducts(userText, page)
         .then((data) => {
           context.commit(mutationTypes.getLoadMoreSearchSuccess, data);

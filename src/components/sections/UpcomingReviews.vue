@@ -25,7 +25,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/upcomingReviews";
+import { actionTypes } from "@/store/modules/products/upcomingReviews";
 import { countOfBilletsOnDevices } from '@/helpers/utils';
 import ComHeading from "@/components/partials/Heading";
 import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
@@ -56,4 +56,4 @@ export default {
         }
     }
 }
-</script>
+</script>@/store/modules/products/upcomingReviews

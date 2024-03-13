@@ -1,18 +1,23 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import welcomeReviews from "@/store/modules/welcomeReviews";
-import latestReviews from "@/store/modules/latestReviews";
-import popularReviews from "@/store/modules/popularReviews";
-import allPlatforms from "@/store/modules/platforms/allPlatforms";
+/* Products */
+import welcomeReviews from "@/store/modules/products/welcomeReviews";
+import latestReviews from "@/store/modules/products/latestReviews";
+import popularReviews from "@/store/modules/products/popularReviews";
+import mostPopularGame from "@/store/modules/products/mostPopularGame";
+import upcomingReviews from "@/store/modules/products/upcomingReviews";
+import bestGamesByPlatform from "@/store/modules/products/bestGamesByPlatform";
+import search from "@/store/modules/products/search";
+
+/* Platforms */
 import parentPlatforms from "@/store/modules/platforms/parentPlatforms";
+import allPlatforms from "@/store/modules/platforms/allPlatforms";
 import singlePlatform from "@/store/modules/platforms/singlePlatform";
-import bestGamesByPlatform from "@/store/modules/platforms/bestGamesByPlatform";
-import mostPopularGame from "@/store/modules/mostPopularGame";
-import upcomingReviews from "@/store/modules/upcomingReviews";
-import genres from "@/store/modules/genres";
+
+/* Genres */
+import genres from "@/store/modules/genres/genres";
 import singleGenre from "@/store/modules/genres/singleGenre";
-import search from "@/store/modules/search";
 
 Vue.use(Vuex);
 
@@ -25,14 +30,14 @@ export default new Vuex.Store({
     welcomeReviews,
     latestReviews,
     popularReviews,
-    allPlatforms,
-    parentPlatforms,
-    singlePlatform,
-    bestGamesByPlatform,
     mostPopularGame,
     upcomingReviews,
+    bestGamesByPlatform,
+    search,
+    parentPlatforms,
+    allPlatforms,
+    singlePlatform,
     genres,
     singleGenre,
-    search
   },
 });
