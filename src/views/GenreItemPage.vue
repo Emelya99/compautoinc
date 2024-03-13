@@ -12,7 +12,7 @@
 import { mapState } from 'vuex';
 import { actionTypes } from "@/store/modules/genres/singleGenre";
 import { scrollToTop } from '@/helpers/utils';
-import ComSingleItemInfoContainer from "@/components/sections/singleItems/SingleItemInfoContainer";
+import ComSingleItemInfoContainer from "@/components/partials/blocks/singleItemInfo/SingleItemInfoContainer";
 
 export default {
     name: 'ComGenresItemPage',

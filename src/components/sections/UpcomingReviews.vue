@@ -56,4 +56,4 @@ export default {
         }
     }
 }
-</script>@/store/modules/products/upcomingReviews
+</script>

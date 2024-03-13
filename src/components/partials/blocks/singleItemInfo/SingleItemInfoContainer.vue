@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import ComSingleItemInfo from "@/components/sections/singleItems/SingleItemInfo";
-import ComSingleItemInfoSkeleton from "@/components/sections/singleItems/SingleItemInfoSkeleton";
+import ComSingleItemInfo from "@/components/partials/blocks/singleItemInfo/SingleItemInfo";
+import ComSingleItemInfoSkeleton from "@/components/partials/blocks/singleItemInfo/SingleItemInfoSkeleton";
 import ComErrorMessage from "@/components/partials/ErrorMessage";
 
 export default {

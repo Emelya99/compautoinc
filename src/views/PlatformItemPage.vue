@@ -32,7 +32,7 @@ import { actionTypes as singlePlatformAction } from "@/store/modules/platforms/s
 import { actionTypes as bestGamesByPlatform } from "@/store/modules/products/bestGamesByPlatform";
 import { PLATFORM_ITEM_BEST_GAMES_LIMIT as limit } from "@/helpers/vars";
 import { scrollToTop } from '@/helpers/utils';
-import ComSingleItemInfoContainer from "@/components/sections/singleItems/SingleItemInfoContainer";
+import ComSingleItemInfoContainer from "@/components/partials/blocks/singleItemInfo/SingleItemInfoContainer";
 import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
 import ComSkeletonCard1 from '@/components/billets/partials/steletons/SkeletonCard1';
 import ComErrorMessage from "@/components/partials/ErrorMessage";

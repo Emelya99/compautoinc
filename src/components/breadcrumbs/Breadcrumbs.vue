@@ -1,5 +1,5 @@
 <template>
-    <div class="breadcrumbs">
+    <div class="breadcrumbs" v-if="firstElement || lastElement">
         <div class="container">
             <ul class="breadcrumbs-list">
                 <li>

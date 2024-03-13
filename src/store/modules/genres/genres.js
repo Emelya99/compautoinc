@@ -2,6 +2,7 @@ import genresApi from '@/api/genres';
 
 const state = {
   data: null,
+  bestGenresData: null,
   isLoading: false,
   error: null,
 };
@@ -20,11 +21,13 @@ const mutations = {
   [mutationTypes.getGenresStart](state) {
     state.isLoading = true;
     state.data = null;
+    state.bestGenresData = null;
     state.error = null;
   },
   [mutationTypes.getGenresSuccess](state, payload) {
     state.isLoading = false;
     state.data = payload;
+    state.bestGenresData = payload.slice().splice(0,6);
   },
   [mutationTypes.getGenresFailure](state, payload) {
     state.isLoading = false;
@@ -33,11 +36,11 @@ const mutations = {
 };
 
 const actions = {
-  [actionTypes.getGenres](context, { countPage }) {
+  [actionTypes.getGenres](context) {
     return new Promise((resolve) => {
       context.commit(mutationTypes.getGenresStart);
       genresApi
-        .getGenres(countPage)
+        .getGenres()
         .then((data) => {
           context.commit(mutationTypes.getGenresSuccess, data);
           resolve(data);

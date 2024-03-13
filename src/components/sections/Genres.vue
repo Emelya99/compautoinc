@@ -54,14 +54,14 @@ export default {
     computed: {
         ...mapState({
             isLoading: state => state.genres.isLoading,
-            genres: state => state.genres.data,
+            genres: state => state.genres.bestGenresData,
             error: state => state.genres.error
         }),
     },
     mounted() {
         if (!this.genres) {
-            this.$store.dispatch(actionTypes.getGenres, { countPage: 6 });
+            this.$store.dispatch(actionTypes.getGenres);
         }
     }
 }
-</script>@/store/modules/genres/genres
+</script>
