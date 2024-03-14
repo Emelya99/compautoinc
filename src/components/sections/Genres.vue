@@ -17,19 +17,7 @@
                 </div>
             </div>
 
-            <com-error-message v-if="error" :errorMessage="error" />
-
-            <ul v-if="isLoading" class="grid-list style-1">
-                <li v-for="index in 6" :key="index">
-                    <com-steleton-card2 />
-                </li>
-            </ul>
-
-            <ul v-if="genres" class="grid-list style-1">
-                <li v-for="genre in genres" :key="genre.id">
-                    <com-genre-billet-card1 :genre="genre" />
-                </li>
-            </ul>
+            <com-genres-block :isLoading="isLoading" :data="genres" :error="error" :skeletonCount="6" />
 
         </div>
     </section>
@@ -39,17 +27,13 @@
 import { mapState } from 'vuex';
 import { actionTypes } from "@/store/modules/genres/genres";
 import ComHeading from "@/components/partials/Heading";
-import ComGenreBilletCard1 from '@/components/billets/genre-billets/card1/GenreBilletCard1';
-import ComSteletonCard2 from '@/components/billets/partials/steletons/SkeletonCard2';
-import ComErrorMessage from "@/components/partials/ErrorMessage";
+import ComGenresBlock from "@/components/partials/blocks/genresBlock/genresBlock";
 
 export default {
     name: 'ComGenres',
     components: {
         ComHeading,
-        ComGenreBilletCard1,
-        ComSteletonCard2,
-        ComErrorMessage,
+        ComGenresBlock,
     },
     computed: {
         ...mapState({
