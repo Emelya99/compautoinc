@@ -5,7 +5,7 @@
             v-if="singleItemData" 
             :singleItemData="singleItemData"
         />
-        <com-error-message v-if="singleItemError" :errorMessage="singleItemError" />
+        <com-error-message v-if="singleItemError" :error-message="singleItemError" />
     </div>
 </template>
 

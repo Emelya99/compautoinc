@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <com-single-item-info-container
-            :singleItemIsLoading="singleGenreIsLoading"
-            :singleItemData="singleGenreData"
-            :singleItemError="singleGenreError"
+            :single-item-is-loading="singleGenreIsLoading"
+            :single-item-data="singleGenreData"
+            :single-item-error="singleGenreError"
         />
     </div>
 </template>

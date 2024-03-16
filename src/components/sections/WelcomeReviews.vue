@@ -2,7 +2,7 @@
     <section class="welcome-reviews_section section">
         <div class="container">
 
-            <com-error-message v-if="error" :errorMessage="error" />
+            <com-error-message v-if="error" :error-message="error" />
             
             <div class="inner">
                 <div class="left-part">

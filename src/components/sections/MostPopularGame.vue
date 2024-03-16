@@ -2,10 +2,12 @@
     <section class="most-popular-game_section section">
         <div class="container">
             
-            <com-heading title-content="The most popular game last month"
-                text-content="This is the article that users of our site viewed the most times today" />
+            <com-heading 
+                title-content="The most popular game last month"
+                text-content="This is the article that users of our site viewed the most times today" 
+            />
 
-            <com-error-message v-if="error" :errorMessage="error" />
+            <com-error-message v-if="error" :error-message="error" />
 
             <div v-if="isLoading">
                 Loading...

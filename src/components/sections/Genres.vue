@@ -4,8 +4,10 @@
             
             <div class="top-part-section">
                 <div class="left-part">
-                    <com-heading title-content="Chose your genre"
-                        text-content="Our website features curated game reviews across various genres." />
+                    <com-heading 
+                        title-content="Chose your genre"
+                        text-content="Our website features curated game reviews across various genres." 
+                    />
                 </div>
                 <div class="right-part">
                     <router-link class="default-btn background" :to="{ name: 'genres' }">
@@ -17,7 +19,12 @@
                 </div>
             </div>
 
-            <com-genres-block :isLoading="isLoading" :data="genres" :error="error" :skeletonCount="6" />
+            <com-genres-block-container 
+                :is-loading="isLoading" 
+                :genres-data="genres" 
+                :error="error" 
+                :skeleton-count="6"
+            />
 
         </div>
     </section>
@@ -27,13 +34,13 @@
 import { mapState } from 'vuex';
 import { actionTypes } from "@/store/modules/genres/genres";
 import ComHeading from "@/components/partials/Heading";
-import ComGenresBlock from "@/components/partials/blocks/genresBlock/genresBlock";
+import ComGenresBlockContainer from "@/components/partials/blocks/genresBlock/genresBlockContainer";
 
 export default {
     name: 'ComGenres',
     components: {
         ComHeading,
-        ComGenresBlock,
+        ComGenresBlockContainer,
     },
     computed: {
         ...mapState({

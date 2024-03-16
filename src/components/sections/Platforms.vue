@@ -4,8 +4,10 @@
 
             <div class="top-part-section">
                 <div class="left-part">
-                    <com-heading title-content="Chose your platform"
-                        text-content="Our blog has selected game reviews for all platforms and operating systems" />
+                    <com-heading 
+                        title-content="Chose your platform"
+                        text-content="Our blog has selected game reviews for all platforms and operating systems" 
+                    />
                 </div>
                 <div class="right-part">
                     <router-link class="default-btn background" :to="{ name: 'platforms' }">
@@ -17,7 +19,7 @@
                 </div>
             </div>
 
-            <com-error-message v-if="error" :errorMessage="error" />
+            <com-error-message v-if="error" :error-message="error" />
 
             <ul v-if="isLoading" class="grid-list style-1">
                 <li v-for="index in 6" :key="index">

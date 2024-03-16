@@ -7,7 +7,7 @@
                 text-content="Explore gaming across platforms — consoles, PCs, mobile — for your ideal setup with the latest releases." 
             />
 
-            <com-error-message v-if="error" :errorMessage="error" />
+            <com-error-message v-if="error" :error-message="error" />
 
             <div v-if="parentPlatforms" class="platforms_content">
                 <div class="item" v-for="parentPlatform in parentPlatforms.results" :key="parentPlatform.id">
@@ -26,7 +26,13 @@
                 </li>
             </ul>
 
-            <com-pagination v-if="parentPlatforms" :total="parentPlatforms.count" :limit="limit" :currentPage="currentPage" :url="baseUrl"></com-pagination>
+            <com-pagination 
+                v-if="parentPlatforms" 
+                :total="parentPlatforms.count" 
+                :limit="limit" 
+                :current-page="currentPage" 
+                :url="baseUrl"
+            />
             
         </div>
     </section>

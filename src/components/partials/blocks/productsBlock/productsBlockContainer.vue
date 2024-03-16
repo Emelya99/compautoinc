@@ -1,39 +1,39 @@
 <template>
     <div>
-        <com-error-message v-if="error" :errorMessage="error" />
+        <com-error-message v-if="error" :error-message="error" />
 
         <ul v-if="isLoading" class="grid-list style-1">
             <li v-for="index in skeletonCount" :key="index">
-                <com-steleton-card2 />
+                <com-skeleton-card1 />
             </li>
         </ul>
 
-        <ul v-if="data" class="grid-list style-1">
-            <li v-for="genre in data" :key="genre.id">
-                <com-genre-billet-card1 :genre="genre" />
+        <ul v-if="productsData" class="grid-list style-1">
+            <li v-for="product in productsData" :key="product.id">
+                <com-app-billet-card1 :product="product" />
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import ComGenreBilletCard1 from '@/components/billets/genre-billets/card1/GenreBilletCard1';
-import ComSteletonCard2 from '@/components/billets/partials/steletons/SkeletonCard2';
+import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
+import ComSkeletonCard1 from '@/components/billets/partials/steletons/SkeletonCard1';
 import ComErrorMessage from "@/components/partials/ErrorMessage";
 
 export default {
-    name: 'ComGenresBlock',
+    name: 'ComProductsBlockContainer',
     components: {
-        ComGenreBilletCard1,
-        ComSteletonCard2,
-        ComErrorMessage,
+        ComAppBilletCard1,
+        ComSkeletonCard1,
+        ComErrorMessage
     },
     props: {
         isLoading: {
             type: Boolean,
             required: false,
         },
-        data: {
+        productsData: {
             type: Array,
             required: false,
         },

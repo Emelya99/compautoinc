@@ -3,26 +3,19 @@
 
         <section class="section">
             <com-single-item-info-container
-                :singleItemIsLoading="singlePlatformIsLoading"
-                :singleItemData="singlePlatformData"
-                :singleItemError="singlePlatformError"
+                :single-item-is-loading="singlePlatformIsLoading"
+                :single-item-data="singlePlatformData"
+                :single-item-error="singlePlatformError"
             />
         </section>
 
-        <div>
-            <com-error-message v-if="bestGamesError" :errorMessage="bestGamesError" />
-            <ul v-if="bestGamesIsLoading" class="grid-list style-1">
-                <li v-for="index in limit" :key="index">
-                    <com-skeleton-card1 />
-                </li>
-            </ul>
-            <ul v-if="bestGamesData" class="grid-list style-1">
-                <li v-for="product in bestGamesData" :key="product.id">
-                    <com-app-billet-card1 :product="product" />
-                </li>
-            </ul>
-        </div>
-        
+        <com-products-block-container 
+            :is-loading="bestGamesIsLoading" 
+            :products-data="bestGamesData"
+            :error="bestGamesError" 
+            :skeleton-count="limit"
+        />
+
     </div>
 </template>
 
@@ -33,17 +26,13 @@ import { actionTypes as bestGamesByPlatform } from "@/store/modules/products/bes
 import { PLATFORM_ITEM_BEST_GAMES_LIMIT as limit } from "@/helpers/vars";
 import { scrollToTop } from '@/helpers/utils';
 import ComSingleItemInfoContainer from "@/components/partials/blocks/singleItemInfo/SingleItemInfoContainer";
-import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
-import ComSkeletonCard1 from '@/components/billets/partials/steletons/SkeletonCard1';
-import ComErrorMessage from "@/components/partials/ErrorMessage";
+import ComProductsBlockContainer from "@/components/partials/blocks/productsBlock/productsBlockContainer";
 
 export default {
     name: 'ComPlatformItemPage',
     components: {
         ComSingleItemInfoContainer,
-        ComSkeletonCard1,
-        ComAppBilletCard1,
-        ComErrorMessage
+        ComProductsBlockContainer,
     },
     computed: {
         ...mapState({

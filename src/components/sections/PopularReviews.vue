@@ -4,8 +4,10 @@
 
             <div class="top-part-section">
                 <div class="left-part">
-                    <com-heading title-content="Popular reviews"
-                        text-content="Most viewed reviews during the relevant period" />
+                    <com-heading 
+                        title-content="Popular reviews"
+                        text-content="Most viewed reviews during the relevant period" 
+                    />
                 </div>
                 <div class="right-part">
                     <ul class="btns-list">
@@ -17,31 +19,26 @@
                         </li>
                         <li>
                             <button :class="{ active: page === 3 }" class="popular-btn" data-page="3"
-                                @click="changeProducts">Last
-                                year</button>
+                                @click="changeProducts">
+                                Last year
+                            </button>
                         </li>
                         <li>
                             <button :class="{ active: page === 2 }" class="popular-btn" data-page="2"
-                                @click="changeProducts">All
-                                time</button>
+                                @click="changeProducts">
+                                All time
+                            </button>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <com-error-message v-if="error" :errorMessage="error" />
-
-            <ul v-if="isLoading" class="grid-list style-1">
-                <li v-for="index in countPage" :key="index">
-                    <com-skeleton-card1 />
-                </li>
-            </ul>
-
-            <ul v-if="products" class="grid-list style-1">
-                <li v-for="product in products" :key="product.id">
-                    <com-app-billet-card1 :product="product" />
-                </li>
-            </ul>
+            <com-products-block-container 
+                :is-loading="isLoading" 
+                :products-data="products" 
+                :error="error" 
+                :skeleton-count="countPage" 
+            />
             
         </div>
     </section>
@@ -52,17 +49,13 @@ import { mapState } from 'vuex';
 import { actionTypes } from "@/store/modules/products/popularReviews";
 import { countOfBilletsOnDevices } from '@/helpers/utils';
 import ComHeading from "@/components/partials/Heading";
-import ComAppBilletCard1 from "@/components/billets/app-billets/card1/AppBilletCard1";
-import ComSkeletonCard1 from '@/components/billets/partials/steletons/SkeletonCard1';
-import ComErrorMessage from "@/components/partials/ErrorMessage";
+import ComProductsBlockContainer from "@/components/partials/blocks/productsBlock/productsBlockContainer";
 
 export default {
     name: 'ComPopularReviews',
     components: {
         ComHeading,
-        ComAppBilletCard1,
-        ComSkeletonCard1,
-        ComErrorMessage,
+        ComProductsBlockContainer,
     },
     computed: {
         ...mapState({
