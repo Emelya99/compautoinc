@@ -8,6 +8,7 @@ import popularReviews from "@/store/modules/products/popularReviews";
 import mostPopularGame from "@/store/modules/products/mostPopularGame";
 import upcomingReviews from "@/store/modules/products/upcomingReviews";
 import bestGamesByPlatform from "@/store/modules/products/bestGamesByPlatform";
+import bestGamesByGenre from "@/store/modules/products/bestGamesByGenre";
 import search from "@/store/modules/products/search";
 
 /* Platforms */
@@ -33,6 +34,7 @@ export default new Vuex.Store({
     mostPopularGame,
     upcomingReviews,
     bestGamesByPlatform,
+    bestGamesByGenre,
     search,
     parentPlatforms,
     allPlatforms,

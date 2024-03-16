@@ -30,6 +30,12 @@ const getBestGamesByPlatform = (platformId, countPage) => {
     .then((response => response.data.results))
 }
 
+const getBestGamesByGenre = (genreId, countPage) => {
+  return axios
+    .get(`/games?genres=${genreId}&ordering=-metarating&page_size=${countPage}`)
+    .then((response => response.data.results))
+}
+
 const getSearchProducts = (currentUserInput, page) => {
   return axios
     .get(`/games?search_exact=true&search_precise=true&page_size=10&search=${currentUserInput}&ordering=-rating&page=${page}`)
@@ -42,5 +48,6 @@ export default {
   getUpcomingReviews,
   getMostPopularGame,
   getBestGamesByPlatform,
+  getBestGamesByGenre,
   getSearchProducts,
 };
