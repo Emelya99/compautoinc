@@ -36,6 +36,7 @@ const actions = {
   [actionTypes.getLatestReviews](context, { countPage }) {
     return new Promise((resolve) => {
       context.commit(mutationTypes.getLatestReviewsStart);
+      console.log(productsApi.getLatestReviews);
       productsApi
         .getLatestReviews(countPage)
         .then((data) => {
