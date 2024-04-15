@@ -9,7 +9,8 @@ import mostPopularGame from "@/store/modules/products/mostPopularGame";
 import upcomingReviews from "@/store/modules/products/upcomingReviews";
 import bestGamesByPlatform from "@/store/modules/products/bestGamesByPlatform";
 import bestGamesByGenre from "@/store/modules/products/bestGamesByGenre";
-import search from "@/store/modules/products/search";
+import searchDropdown from "@/store/modules/products/searchDropdown";
+import searchPage from "@/store/modules/products/searchPage";
 
 /* Platforms */
 import parentPlatforms from "@/store/modules/platforms/parentPlatforms";
@@ -35,7 +36,8 @@ export default new Vuex.Store({
     upcomingReviews,
     bestGamesByPlatform,
     bestGamesByGenre,
-    search,
+    searchDropdown,
+    searchPage,
     parentPlatforms,
     allPlatforms,
     singlePlatform,

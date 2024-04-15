@@ -36,9 +36,9 @@ const getBestGamesByGenre = (genreId, countPage) => {
     .then((response => response.data.results))
 }
 
-const getSearchProducts = (currentUserInput, page) => {
+const getSearchProducts = (currentUserInput, page, countPage) => {
   return axios
-    .get(`/games?search_exact=true&search_precise=true&page_size=10&search=${currentUserInput}&ordering=-rating&page=${page}`)
+    .get(`/games?search_exact=true&search_precise=true&page_size=${countPage}&search=${currentUserInput}&ordering=-rating&page=${page}`)
     .then((response) => response.data);
 };
 

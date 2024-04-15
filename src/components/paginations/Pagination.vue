@@ -76,7 +76,7 @@ export default {
             return Math.ceil(this.total / this.limit);
         },
         countMoreThanCurrent() {
-            return this.pagesCount > this.currentPage + 3;
+            return this.pagesCount > this.currentPage + 4;
         },
         pages() {
             if (this.countMoreThanCurrent) {
@@ -101,6 +101,10 @@ export default {
             }
         }
     },
+    mounted() {
+        console.log('pagesCount: ' + this.pagesCount);
+        console.log('currentPage: ' + this.currentPage);
+    }
 }
 </script>
 

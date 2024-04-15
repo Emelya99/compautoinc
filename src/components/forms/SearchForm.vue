@@ -1,8 +1,8 @@
 <template>
     <form class="search-form" ref="formBox" autocomplete="off">
-        <input class="searh-input" type="search" placeholder="Search" required v-model="search" @input="handleSearch"
-            @click="handleInputClick">
-        <button class="sbmt-btn" type="submit" aria-label="Send form">
+        <input class="searh-input" type="search" placeholder="Search game..." v-model="search" @input="handleSearch"
+            @click="handleInputClick" @keydown.enter="sendForm" required>
+        <button class="sbmt-btn" type="submit" aria-label="Send form" @click="sendForm">
             <svg class="svg-icons">
                 <use xlink:href="@/assets/images/icons.svg#search"></use>
             </svg>
@@ -41,7 +41,8 @@
 
 <script>
 import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/products/search";
+import { actionTypes } from "@/store/modules/products/searchDropdown";
+import { SEARCH_DROPDOWN_GAME_LIMIT as limit } from "@/helpers/vars";
 import debounce from 'lodash.debounce';
 import ComSmallLoader from '@/components/partials/loaders/SmallLoader';
 
@@ -59,17 +60,17 @@ export default {
     },
     computed: {
         ...mapState({
-            isLoading: state => state.search.isLoading,
-            products: state => state.search.data,
-            isNextPage: state => state.search.isNextPage,
-            error: state => state.search.error
+            isLoading: state => state.searchDropdown.isLoading,
+            products: state => state.searchDropdown.data,
+            isNextPage: state => state.searchDropdown.isNextPage,
+            error: state => state.searchDropdown.error
         }),
-        slug() {
-            return this.$route.path;
+        currentPath() {
+            return this.$route.fullPath;
         },
     },
     watch: {
-        slug() {
+        currentPath() {
             if (this.search || this.isSearchResultsOpened) {
                 this.search = '';
                 this.isSearchResultsOpened = false;
@@ -95,23 +96,30 @@ export default {
                 this.isSearchResultsOpened = true;
             }
         },
+        sendForm(e) {
+            e.preventDefault();
+            const newPath = `/search?text=${this.search}`;
+
+            if (this.currentPath !== newPath) {
+                this.$router.push({ name: 'search', query: { text: this.search || undefined } });
+            }
+        },
         resultsScroll() {
             const resultsBox = this.$refs.resultsBox;
 
             if (resultsBox.scrollTop + resultsBox.clientHeight + 5 >= resultsBox.scrollHeight && this.isNextPage) {
-
                 this.loadMoreResults();
             }
         },
         loadMoreResults() {
             this.page += 1;
-            this.$store.dispatch(actionTypes.getLoadMoreSearch, { currentUserInput: this.search, page: this.page }).then(() => {
+            this.$store.dispatch(actionTypes.getLoadMoreSearch, { currentUserInput: this.search, page: this.page, countPage: limit }).then(() => {
                 this.isSearchResultsOpened = true;
             })
         },
         getSearch: debounce(function () {
             this.page = 1;
-            this.$store.dispatch(actionTypes.getSearch, { currentUserInput: this.search, page: this.page }).then(() => {
+            this.$store.dispatch(actionTypes.getSearch, { currentUserInput: this.search, page: this.page, countPage: limit }).then(() => {
                 this.isSearchResultsOpened = true;
             })
         }, 500),
@@ -278,4 +286,4 @@ export default {
         }
     }
 }
-</style>@/store/modules/products/search
+</style>

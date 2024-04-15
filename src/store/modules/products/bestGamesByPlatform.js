@@ -43,7 +43,6 @@ const actions = {
           resolve(data);
         })
         .catch((error) => {
-            console.log(error);
           context.commit(mutationTypes.getBestGamesFailure, error.message);
         });
     });

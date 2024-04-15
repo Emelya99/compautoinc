@@ -41,8 +41,8 @@
 <script>
 import { mapState } from 'vuex';
 import { actionTypes } from "@/store/modules/platforms/parentPlatforms";
-import { PLATFORMS_PAGINATION_LIMIT as limit } from "@/helpers/vars";
 import { scrollToTop } from '@/helpers/utils';
+import { PLATFORMS_PAGINATION_LIMIT as limit } from "@/helpers/vars";
 import ComHeading from "@/components/partials/Heading";
 import ComPlatformBilletCard1 from '@/components/billets/platform-billets/card1/PlatformBilletCard1';
 import ComSteletonCard2 from '@/components/billets/partials/steletons/SkeletonCard2';

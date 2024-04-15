@@ -9,19 +9,19 @@ const state = {
 
 export const mutationTypes = {
   // First Request
-  getSearchStart: '[search] getSearchStart',
-  getSearchSuccess: '[search] getSearchSuccess',
-  getSearchFailure: '[search] getSearchFailure',
+  getSearchStart: '[search dropdown] getSearchStart',
+  getSearchSuccess: '[search dropdown] getSearchSuccess',
+  getSearchFailure: '[search dropdown] getSearchFailure',
 
   // Load More
-  getLoadMoreSearchStart: '[search] getLoadMoreSearchStart',
-  getLoadMoreSearchSuccess: '[search] getLoadMoreSearchSuccess',
-  getLoadMoreSearchFailure: '[search] getLoadMoreSearchFailure',
+  getLoadMoreSearchStart: '[search dropdown] getLoadMoreSearchStart',
+  getLoadMoreSearchSuccess: '[search dropdown] getLoadMoreSearchSuccess',
+  getLoadMoreSearchFailure: '[search dropdown] getLoadMoreSearchFailure',
 };
 
 export const actionTypes = {
-    getSearch: '[search] getSearch',
-    getLoadMoreSearch: '[search] getLoadMoreSearch',
+    getSearch: '[search dropdown] getSearch',
+    getLoadMoreSearch: '[search dropdown] getLoadMoreSearch',
 };
 
 const mutations = {
@@ -30,6 +30,7 @@ const mutations = {
     state.isLoading = true;
     state.isNextPage = null;
     state.data = [];
+    state.error = null;
   },
   [mutationTypes.getSearchSuccess](state, payload) {
     state.isLoading = false;
@@ -45,6 +46,7 @@ const mutations = {
   [mutationTypes.getLoadMoreSearchStart](state) {
     state.isLoading = true;
     state.isNextPage = null;
+    state.error = null;
   },
   [mutationTypes.getLoadMoreSearchSuccess](state, payload) {
     state.isLoading = false;
@@ -59,12 +61,13 @@ const mutations = {
 
 const actions = {
   // First Request
-  [actionTypes.getSearch](context, { currentUserInput, page }) {
+  [actionTypes.getSearch](context, { currentUserInput, page, countPage }) {
     const userText = currentUserInput.split(" ").join("-");
+    console.log('first request');
     return new Promise((resolve) => {
       context.commit(mutationTypes.getSearchStart);
       productsApi
-        .getSearchProducts(userText, page)
+        .getSearchProducts(userText, page, countPage)
         .then((data) => {
           context.commit(mutationTypes.getSearchSuccess, data);
           resolve(data);
@@ -76,12 +79,13 @@ const actions = {
   },
 
   // Load More
-  [actionTypes.getLoadMoreSearch](context, { currentUserInput, page }) {
+  [actionTypes.getLoadMoreSearch](context, { currentUserInput, page, countPage }) {
     const userText = currentUserInput.split(" ").join("-");
+    console.log('load more request');
     return new Promise((resolve) => {
       context.commit(mutationTypes.getLoadMoreSearchStart);
       productsApi
-        .getSearchProducts(userText, page)
+        .getSearchProducts(userText, page, countPage)
         .then((data) => {
           context.commit(mutationTypes.getLoadMoreSearchSuccess, data);
           resolve(data);
