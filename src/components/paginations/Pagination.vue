@@ -101,10 +101,6 @@ export default {
             }
         }
     },
-    mounted() {
-        console.log('pagesCount: ' + this.pagesCount);
-        console.log('currentPage: ' + this.currentPage);
-    }
 }
 </script>
 

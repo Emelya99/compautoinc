@@ -14,7 +14,7 @@ const getPopularReviews = (countPage, page) => {
 
 const getMostPopularGame = () => {
   return axios
-    .get(`/games/red-dead-redemption-2`)
+    .get(`/games/the-elder-scrolls-v-skyrim`)
     .then((response) => response.data);
 };
 

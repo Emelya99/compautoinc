@@ -63,7 +63,6 @@ const actions = {
   // First Request
   [actionTypes.getSearch](context, { currentUserInput, page, countPage }) {
     const userText = currentUserInput.split(" ").join("-");
-    console.log('first request');
     return new Promise((resolve) => {
       context.commit(mutationTypes.getSearchStart);
       productsApi
@@ -81,7 +80,6 @@ const actions = {
   // Load More
   [actionTypes.getLoadMoreSearch](context, { currentUserInput, page, countPage }) {
     const userText = currentUserInput.split(" ").join("-");
-    console.log('load more request');
     return new Promise((resolve) => {
       context.commit(mutationTypes.getLoadMoreSearchStart);
       productsApi
