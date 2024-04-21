@@ -23,7 +23,7 @@
                         <router-link class="search-item" :to="{ name: 'app', params: { slug: `${product.slug}` } }">
                             <span class="img-container">
                                 <img v-if="product.background_image" :src="product.background_image" :alt="product.name">
-                                <img v-else src="@/assets/images/placeholder-game.png" alt="Placeholder game">
+                                <img v-else src="@/assets/images/placeholder-game.jpg" alt="placeholder image">
                             </span>
                             <span class="title ellipsis">{{ product.name }}</span>
                         </router-link>

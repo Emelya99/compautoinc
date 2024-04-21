@@ -8,7 +8,7 @@ const getAllPlatforms = (countPage) => {
 
 const getParentPlatforms = (countPage, page) => {
   return axios
-    .get(`/platforms/lists/parents?page_size=${countPage}&page=${page}`)
+    .get(`/platforms/lists/parents?page_size=${countPage}&page=${page}`);
 };
 
 const getSinglePlatform = (slug) => {

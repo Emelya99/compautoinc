@@ -5,7 +5,7 @@
     >
         <span class="img-container">
             <img v-if="genre.image_background" :src="genre.image_background" :alt="`${genre.name} background image`" loading="lazy">
-            <img v-else src="@/assets/images/placeholder-game.png" :alt="`${genre.name} background image`" loading="lazy">
+            <img v-else src="@/assets/images/placeholder-game.jpg" :alt="`${genre.name} background image`" loading="lazy">
         </span>
         <span class="concise-info">
             <span class="title ellipsis-multiply one">{{ genre.name }}</span>

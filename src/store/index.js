@@ -11,6 +11,8 @@ import bestGamesByPlatform from "@/store/modules/products/bestGamesByPlatform";
 import bestGamesByGenre from "@/store/modules/products/bestGamesByGenre";
 import searchDropdown from "@/store/modules/products/searchDropdown";
 import searchPage from "@/store/modules/products/searchPage";
+import productItem from "@/store/modules/products/productPage/productItem";
+import gameSeries from "@/store/modules/products/productPage/gameSeries";
 
 /* Platforms */
 import parentPlatforms from "@/store/modules/platforms/parentPlatforms";
@@ -38,6 +40,8 @@ export default new Vuex.Store({
     bestGamesByGenre,
     searchDropdown,
     searchPage,
+    productItem,
+    gameSeries,
     parentPlatforms,
     allPlatforms,
     singlePlatform,

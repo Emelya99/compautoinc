@@ -23,7 +23,7 @@ const routes = [
   {
     path: '/reviews/:slug',
     name: 'app',
-    component: () => import('@/views/AppPage.vue'),
+    component: () => import('@/views/appPage/AppPage.vue'),
     meta: {
       title: 'AppPage',
     },

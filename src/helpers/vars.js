@@ -11,3 +11,6 @@ export const SEARCH_DROPDOWN_GAME_LIMIT = 10;
 /* Search Page */
 export const SEARCH_PAGE_SKELETON_LIMIT = 12;
 export const SEARCH_PAGE_GAME_LIMIT = 24;
+
+/* App Page */
+export const APP_PAGE_SIDEBAR_LIMIT = 6;

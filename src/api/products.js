@@ -42,6 +42,18 @@ const getSearchProducts = (currentUserInput, page, countPage) => {
     .then((response) => response.data);
 };
 
+const getSingleGame = (slug) => {
+  return axios
+    .get(`/games/${slug}`)
+    .then((response) => response.data);
+}
+
+const getGameSeries = (slug, pageSize) => {
+  return axios
+    .get(`/games/${slug}/game-series?page_size=${pageSize}`)
+    .then((response) => response.data.results);
+}
+
 export default {
   getLatestReviews,
   getPopularReviews,
@@ -50,4 +62,6 @@ export default {
   getBestGamesByPlatform,
   getBestGamesByGenre,
   getSearchProducts,
+  getSingleGame,
+  getGameSeries,
 };
