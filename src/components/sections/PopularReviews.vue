@@ -37,7 +37,7 @@
                 :is-loading="isLoading" 
                 :products-data="products" 
                 :error="error" 
-                :skeleton-count="countPage" 
+                :skeleton-count="pageSize" 
             />
             
         </div>
@@ -63,7 +63,7 @@ export default {
             products: state => state.popularReviews.data,
             error: state => state.popularReviews.error
         }),
-        countPage() {
+        pageSize() {
             return countOfBilletsOnDevices(6, 6, 3);
         },
     },
@@ -79,7 +79,7 @@ export default {
     },
     methods: {
         getProducts() {
-            this.$store.dispatch(actionTypes.getPopularReviews, { countPage: this.countPage, page: this.page });
+            this.$store.dispatch(actionTypes.getPopularReviews, { pageSize: this.pageSize, page: this.page });
         },
         changeProducts(e) {
             this.page = Number(e.target.dataset.page);

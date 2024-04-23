@@ -33,11 +33,11 @@ const mutations = {
 };
 
 const actions = {
-  [actionTypes.getParentPlatforms](context, { countPage, page }) {
+  [actionTypes.getParentPlatforms](context, { pageSize, page }) {
     return new Promise((resolve) => {
       context.commit(mutationTypes.getParentPlatformsStart);
       platformsApi
-        .getParentPlatforms(countPage, page)
+        .getParentPlatforms(pageSize, page)
         .then((response) => {
           context.commit(mutationTypes.getParentPlatformsSuccess, response.data);
           resolve(response.data);

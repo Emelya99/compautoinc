@@ -33,11 +33,11 @@ const mutations = {
 };
 
 const actions = {
-  [actionTypes.getBestGames](context, { platformId, countPage }) {
+  [actionTypes.getBestGames](context, { platformId, pageSize }) {
     return new Promise((resolve) => {
       context.commit(mutationTypes.getBestGamesStart);
       productsApi
-        .getBestGamesByPlatform(platformId,countPage)
+        .getBestGamesByPlatform(platformId,pageSize)
         .then((data) => {
           context.commit(mutationTypes.getBestGamesSuccess, data);
           resolve(data);

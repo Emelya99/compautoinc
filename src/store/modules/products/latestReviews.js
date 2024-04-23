@@ -33,11 +33,11 @@ const mutations = {
 };
 
 const actions = {
-  [actionTypes.getLatestReviews](context, { countPage }) {
+  [actionTypes.getLatestReviews](context, { pageSize }) {
     return new Promise((resolve) => {
       context.commit(mutationTypes.getLatestReviewsStart);
       productsApi
-        .getLatestReviews(countPage)
+        .getLatestReviews(pageSize)
         .then((data) => {
           context.commit(mutationTypes.getLatestReviewsSuccess, data);
           resolve(data);

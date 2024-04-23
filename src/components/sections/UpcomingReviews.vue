@@ -11,7 +11,7 @@
                 :is-loading="isLoading" 
                 :products-data="products" 
                 :error="error" 
-                :skeleton-count="countPage" 
+                :skeleton-count="pageSize" 
             />
             
         </div>
@@ -37,13 +37,13 @@ export default {
             products: state => state.upcomingReviews.data,
             error: state => state.upcomingReviews.error
         }),
-        countPage() {
+        pageSize() {
             return countOfBilletsOnDevices(6, 4, 4);
         }
     },
     mounted() {
         if (!this.products) {
-            this.$store.dispatch(actionTypes.getUpcomingReviews, { countPage: this.countPage });
+            this.$store.dispatch(actionTypes.getUpcomingReviews, { pageSize: this.pageSize });
         }
     }
 }

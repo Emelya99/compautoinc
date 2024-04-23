@@ -60,7 +60,7 @@ export default {
     },
     mounted() {
         if (!this.firstProduct || !this.otherProducts) {
-            this.$store.dispatch(actionTypes.getWelcomeReviews, { countPage: 5, page: 1 });
+            this.$store.dispatch(actionTypes.getWelcomeReviews, { pageSize: 5, page: 1 });
         }
     },
 }

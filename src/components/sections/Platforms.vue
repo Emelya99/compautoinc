@@ -62,7 +62,7 @@ export default {
     },
     mounted() {
         if (!this.platforms) {
-            this.$store.dispatch(actionTypes.getAllPlatforms, { countPage: 6 });
+            this.$store.dispatch(actionTypes.getAllPlatforms, { pageSize: 6 });
         }
     }
 }

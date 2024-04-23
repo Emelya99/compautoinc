@@ -1,14 +1,14 @@
 import axios from '@/api/axios';
 
-const getLatestReviews = (countPage) => {
+const getLatestReviews = (pageSize) => {
   return axios
-    .get(`/games?page_size=${countPage}&ordering=-updated`)
+    .get(`/games?page_size=${pageSize}&ordering=-updated`)
     .then((response) => response.data.results);
 };
 
-const getPopularReviews = (countPage, page) => {
+const getPopularReviews = (pageSize, page) => {
   return axios
-    .get(`/games?page_size=${countPage}&page=${page}&ordering=-metarating`)
+    .get(`/games?page_size=${pageSize}&page=${page}&ordering=-metarating`)
     .then((response) => response.data.results);
 };
 
@@ -18,27 +18,27 @@ const getMostPopularGame = () => {
     .then((response) => response.data);
 };
 
-const getUpcomingReviews = (countPage) => {
+const getUpcomingReviews = (pageSize) => {
   return axios
-    .get(`/games?page_size=${countPage}&ordering=-released`)
+    .get(`/games?page_size=${pageSize}&ordering=-released`)
     .then((response) => response.data.results);
 };
 
-const getBestGamesByPlatform = (platformId, countPage) => {
+const getBestGamesByPlatform = (platformId, pageSize) => {
   return axios
-    .get(`/games?platforms=${platformId}&ordering=-metarating&page_size=${countPage}`)
+    .get(`/games?platforms=${platformId}&ordering=-metarating&page_size=${pageSize}`)
     .then((response => response.data.results))
 }
 
-const getBestGamesByGenre = (genreId, countPage) => {
+const getBestGamesByGenre = (genreId, pageSize) => {
   return axios
-    .get(`/games?genres=${genreId}&ordering=-metarating&page_size=${countPage}`)
+    .get(`/games?genres=${genreId}&ordering=-metarating&page_size=${pageSize}`)
     .then((response => response.data.results))
 }
 
-const getSearchProducts = (currentUserInput, page, countPage) => {
+const getSearchProducts = (currentUserInput, page, pageSize) => {
   return axios
-    .get(`/games?search_exact=true&search_precise=true&page_size=${countPage}&search=${currentUserInput}&ordering=-rating&page=${page}`)
+    .get(`/games?search_exact=true&search_precise=true&page_size=${pageSize}&search=${currentUserInput}&ordering=-rating&page=${page}`)
     .then((response) => response.data);
 };
 
@@ -54,6 +54,12 @@ const getGameSeries = (slug, pageSize) => {
     .then((response) => response.data.results);
 }
 
+const getScreenshots = (slug) => {
+  return axios
+    .get(`/games/${slug}/screenshots`)
+    .then((response) => response.data.results);
+}
+
 export default {
   getLatestReviews,
   getPopularReviews,
@@ -64,4 +70,5 @@ export default {
   getSearchProducts,
   getSingleGame,
   getGameSeries,
+  getScreenshots,
 };

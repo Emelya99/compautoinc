@@ -1,14 +1,14 @@
 import axios from '@/api/axios';
 
-const getAllPlatforms = (countPage) => {
+const getAllPlatforms = (pageSize) => {
   return axios
-    .get(`/platforms?page_size=${countPage}`)
+    .get(`/platforms?page_size=${pageSize}`)
     .then((response) => response.data.results);
 };
 
-const getParentPlatforms = (countPage, page) => {
+const getParentPlatforms = (pageSize, page) => {
   return axios
-    .get(`/platforms/lists/parents?page_size=${countPage}&page=${page}`);
+    .get(`/platforms/lists/parents?page_size=${pageSize}&page=${page}`);
 };
 
 const getSinglePlatform = (slug) => {

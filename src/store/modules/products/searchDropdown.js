@@ -61,12 +61,12 @@ const mutations = {
 
 const actions = {
   // First Request
-  [actionTypes.getSearch](context, { currentUserInput, page, countPage }) {
+  [actionTypes.getSearch](context, { currentUserInput, page, pageSize }) {
     const userText = currentUserInput.split(" ").join("-");
     return new Promise((resolve) => {
       context.commit(mutationTypes.getSearchStart);
       productsApi
-        .getSearchProducts(userText, page, countPage)
+        .getSearchProducts(userText, page, pageSize)
         .then((data) => {
           context.commit(mutationTypes.getSearchSuccess, data);
           resolve(data);
@@ -78,12 +78,12 @@ const actions = {
   },
 
   // Load More
-  [actionTypes.getLoadMoreSearch](context, { currentUserInput, page, countPage }) {
+  [actionTypes.getLoadMoreSearch](context, { currentUserInput, page, pageSize }) {
     const userText = currentUserInput.split(" ").join("-");
     return new Promise((resolve) => {
       context.commit(mutationTypes.getLoadMoreSearchStart);
       productsApi
-        .getSearchProducts(userText, page, countPage)
+        .getSearchProducts(userText, page, pageSize)
         .then((data) => {
           context.commit(mutationTypes.getLoadMoreSearchSuccess, data);
           resolve(data);

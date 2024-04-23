@@ -113,13 +113,13 @@ export default {
         },
         loadMoreResults() {
             this.page += 1;
-            this.$store.dispatch(actionTypes.getLoadMoreSearch, { currentUserInput: this.search, page: this.page, countPage: limit }).then(() => {
+            this.$store.dispatch(actionTypes.getLoadMoreSearch, { currentUserInput: this.search, page: this.page, pageSize: limit }).then(() => {
                 this.isSearchResultsOpened = true;
             })
         },
         getSearch: debounce(function () {
             this.page = 1;
-            this.$store.dispatch(actionTypes.getSearch, { currentUserInput: this.search, page: this.page, countPage: limit }).then(() => {
+            this.$store.dispatch(actionTypes.getSearch, { currentUserInput: this.search, page: this.page, pageSize: limit }).then(() => {
                 this.isSearchResultsOpened = true;
             })
         }, 500),

@@ -33,11 +33,11 @@ const mutations = {
 };
 
 const actions = {
-  [actionTypes.getUpcomingReviews](context, { countPage }) {
+  [actionTypes.getUpcomingReviews](context, { pageSize }) {
     return new Promise((resolve) => {
       context.commit(mutationTypes.getUpcomingReviewsStart);
       productsApi
-        .getUpcomingReviews(countPage)
+        .getUpcomingReviews(pageSize)
         .then((data) => {
           context.commit(mutationTypes.getUpcomingReviewsSuccess, data);
           resolve(data);

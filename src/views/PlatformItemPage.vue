@@ -69,7 +69,7 @@ export default {
                 });
         },
         bestGamesByPlatform(platformId) {
-            this.$store.dispatch(bestGamesByPlatform.getBestGames, { platformId, countPage: this.limit });
+            this.$store.dispatch(bestGamesByPlatform.getBestGames, { platformId, pageSize: this.limit });
         }
     }
 }

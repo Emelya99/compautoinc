@@ -85,7 +85,7 @@ export default {
     },
     methods: {
         getPlatforms() {
-            this.$store.dispatch(actionTypes.getParentPlatforms, { countPage: this.limit, page: this.currentPage });
+            this.$store.dispatch(actionTypes.getParentPlatforms, { pageSize: this.limit, page: this.currentPage });
         }
     }
 }

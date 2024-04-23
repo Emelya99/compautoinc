@@ -13,6 +13,8 @@ import searchDropdown from "@/store/modules/products/searchDropdown";
 import searchPage from "@/store/modules/products/searchPage";
 import productItem from "@/store/modules/products/productPage/productItem";
 import gameSeries from "@/store/modules/products/productPage/gameSeries";
+import popularReviewsBlock from "@/store/modules/products/productPage/popularReviewsBlock";
+import screensBlock from "@/store/modules/products/productPage/screensBlock";
 
 /* Platforms */
 import parentPlatforms from "@/store/modules/platforms/parentPlatforms";
@@ -42,6 +44,8 @@ export default new Vuex.Store({
     searchPage,
     productItem,
     gameSeries,
+    popularReviewsBlock,
+    screensBlock,
     parentPlatforms,
     allPlatforms,
     singlePlatform,

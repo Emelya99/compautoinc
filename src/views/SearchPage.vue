@@ -71,7 +71,7 @@ export default {
     },
     methods: {
         getSearch() {
-            this.$store.dispatch(actionTypes.getSearch, { currentUserInput: this.searchText, page: this.currentPage, countPage: this.gameLimit });
+            this.$store.dispatch(actionTypes.getSearch, { currentUserInput: this.searchText, page: this.currentPage, pageSize: this.gameLimit });
         }
     },
     mounted() {

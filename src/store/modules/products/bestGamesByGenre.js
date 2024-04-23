@@ -33,11 +33,11 @@ const mutations = {
 };
 
 const actions = {
-  [actionTypes.getBestGames](context, { genreId, countPage }) {
+  [actionTypes.getBestGames](context, { genreId, pageSize }) {
     return new Promise((resolve) => {
       context.commit(mutationTypes.getBestGamesStart);
       productsApi
-        .getBestGamesByGenre(genreId,countPage)
+        .getBestGamesByGenre(genreId,pageSize)
         .then((data) => {
           context.commit(mutationTypes.getBestGamesSuccess, data);
           resolve(data);

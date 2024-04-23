@@ -33,12 +33,12 @@ const mutations = {
 };
 
 const actions = {
-    [actionTypes.getSearch](context, { currentUserInput, page, countPage }) {
+    [actionTypes.getSearch](context, { currentUserInput, page, pageSize }) {
       const userText = currentUserInput.split(" ").join("-");
       return new Promise((resolve) => {
         context.commit(mutationTypes.getSearchStart);
         productsApi
-          .getSearchProducts(userText, page, countPage)
+          .getSearchProducts(userText, page, pageSize)
           .then((data) => {
             context.commit(mutationTypes.getSearchSuccess, data);
             resolve(data);

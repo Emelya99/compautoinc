@@ -69,7 +69,7 @@ export default {
                 });
         },
         bestGamesByGenre(genreId) {
-            this.$store.dispatch(bestGamesByGenre.getBestGames, { genreId, countPage: this.limit });
+            this.$store.dispatch(bestGamesByGenre.getBestGames, { genreId, pageSize: this.limit });
         }
     }
 }
