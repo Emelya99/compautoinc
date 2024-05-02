@@ -60,6 +60,12 @@ const getScreenshots = (slug) => {
     .then((response) => response.data.results);
 }
 
+const getStores = (slug) => {
+  return axios
+    .get(`/games/${slug}/stores`)
+    .then((response) => response.data.results);
+}
+
 export default {
   getLatestReviews,
   getPopularReviews,
@@ -71,4 +77,5 @@ export default {
   getSingleGame,
   getGameSeries,
   getScreenshots,
+  getStores,
 };
