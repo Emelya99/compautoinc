@@ -66,6 +66,12 @@ const getStores = (slug) => {
     .then((response) => response.data.results);
 }
 
+const getComments = (slug, pageSize) => {
+  return axios
+    .get(`/games/${slug}/reddit?page_size=${pageSize}`)
+    .then((response) => response.data);
+}
+
 export default {
   getLatestReviews,
   getPopularReviews,
@@ -78,4 +84,5 @@ export default {
   getGameSeries,
   getScreenshots,
   getStores,
+  getComments,
 };

@@ -290,6 +290,16 @@
     }
 }
 
+.btn-container {
+    display: flex;
+    &.center {
+        justify-content: center;
+    }
+    &.right {
+        justify-content: flex-end;
+    }
+}
+
 .content-loader {
     display: block;
     width: 100%;

@@ -16,6 +16,7 @@ import gameSeries from "@/store/modules/products/productPage/gameSeries";
 import popularReviewsBlock from "@/store/modules/products/productPage/popularReviewsBlock";
 import screensBlock from "@/store/modules/products/productPage/screensBlock";
 import getButtons from "@/store/modules/products/productPage/getButtons";
+import commentsBlock from "@/store/modules/products/productPage/commentsBlock";
 
 /* Platforms */
 import parentPlatforms from "@/store/modules/platforms/parentPlatforms";
@@ -48,6 +49,7 @@ export default new Vuex.Store({
     popularReviewsBlock,
     screensBlock,
     getButtons,
+    commentsBlock,
     parentPlatforms,
     allPlatforms,
     singlePlatform,

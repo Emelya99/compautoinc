@@ -22,6 +22,9 @@
                     <!-- Get Buttons Block -->
                     <com-get-buttons-block v-if="product && product.stores" :slug="slug" />
 
+                    <!-- Comments Block -->
+                    <com-comments-block v-if="product && product.reddit_count" :slug="slug" :comments-link="product.reddit_url" />
+
                 </div>
 
                 <div class="right-part">
@@ -49,6 +52,7 @@ import ComGameSeriesBlock from '@/views/appPage/components/gameSeriesBlock';
 import ComPopularReviewsBlock from '@/views/appPage/components/popularReviewsBlock';
 import ComScreensBlock from '@/views/appPage/components/screensBlock';
 import ComGetButtonsBlock from '@/views/appPage/components/getButtonsBlock';
+import ComCommentsBlock from '@/views/appPage/components/commentsBlock';
 import ComErrorMessage from "@/components/partials/ErrorMessage";
 
 export default {
@@ -59,6 +63,7 @@ export default {
         ComPopularReviewsBlock,
         ComScreensBlock,
         ComGetButtonsBlock,
+        ComCommentsBlock,
         ComErrorMessage,
     },
     computed: {

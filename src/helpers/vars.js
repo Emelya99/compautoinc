@@ -14,3 +14,4 @@ export const SEARCH_PAGE_GAME_LIMIT = 24;
 
 /* App Page */
 export const APP_PAGE_SIDEBAR_LIMIT = 6;
+export const APP_PAGE_COMMENTS_LIMIT = 6;
