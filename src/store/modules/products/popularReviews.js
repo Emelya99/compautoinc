@@ -2,6 +2,7 @@ import productsApi from '@/api/products';
 
 const state = {
   data: null,
+  currentPage: 4,
   isLoading: false,
   error: null,
 };
@@ -10,6 +11,7 @@ export const mutationTypes = {
   getPopularReviewsStart: '[popular reviews] getPopularReviewsStart',
   getPopularReviewsSuccess: '[popular reviews] getPopularReviewsSuccess',
   getPopularReviewsFailure: '[popular reviews] getPopularReviewsFailure',
+  updateCurrentPage: '[popular reviews] updateCurrentPage',
 };
 
 export const actionTypes = {
@@ -29,6 +31,9 @@ const mutations = {
   [mutationTypes.getPopularReviewsFailure](state, payload) {
     state.isLoading = false;
     state.error = payload;
+  },
+  [mutationTypes.updateCurrentPage](state, currentPage) {
+    state.currentPage = currentPage;
   },
 };
 

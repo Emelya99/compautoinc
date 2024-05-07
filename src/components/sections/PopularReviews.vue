@@ -12,19 +12,19 @@
                 <div class="right-part">
                     <ul class="btns-list">
                         <li>
-                            <button :class="{ active: page === 4 }" class="popular-btn" data-page="4"
+                            <button :class="{ active: currentPage === 4 }" class="popular-btn" data-page="4"
                                 @click="changeProducts">
                                 Last month
                             </button>
                         </li>
                         <li>
-                            <button :class="{ active: page === 3 }" class="popular-btn" data-page="3"
+                            <button :class="{ active: currentPage === 3 }" class="popular-btn" data-page="3"
                                 @click="changeProducts">
                                 Last year
                             </button>
                         </li>
                         <li>
-                            <button :class="{ active: page === 2 }" class="popular-btn" data-page="2"
+                            <button :class="{ active: currentPage === 2 }" class="popular-btn" data-page="2"
                                 @click="changeProducts">
                                 All time
                             </button>
@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { actionTypes } from "@/store/modules/products/popularReviews";
+import { mapState, mapMutations } from 'vuex';
+import { actionTypes, mutationTypes } from "@/store/modules/products/popularReviews";
 import { countOfBilletsOnDevices } from '@/helpers/utils';
 import ComHeading from "@/components/partials/Heading";
 import ComProductsBlockContainer from "@/components/partials/blocks/productsBlock/productsBlockContainer";
@@ -60,17 +60,13 @@ export default {
     computed: {
         ...mapState({
             isLoading: state => state.popularReviews.isLoading,
+            currentPage: state => state.popularReviews.currentPage,
             products: state => state.popularReviews.data,
             error: state => state.popularReviews.error
         }),
         pageSize() {
             return countOfBilletsOnDevices(6, 6, 3);
         },
-    },
-    data() {
-        return {
-            page: 4,
-        }
     },
     mounted() {
         if (!this.products) {
@@ -79,10 +75,11 @@ export default {
     },
     methods: {
         getProducts() {
-            this.$store.dispatch(actionTypes.getPopularReviews, { pageSize: this.pageSize, page: this.page });
+            this.$store.dispatch(actionTypes.getPopularReviews, { pageSize: this.pageSize, page: this.currentPage });
         },
         changeProducts(e) {
-            this.page = Number(e.target.dataset.page);
+            const currentPage = Number(e.target.dataset.page);
+            this.$store.commit(mutationTypes.updateCurrentPage, currentPage);
             this.getProducts();
         }
     }

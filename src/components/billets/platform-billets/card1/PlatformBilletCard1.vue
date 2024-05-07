@@ -4,8 +4,11 @@
         :to="{ name: 'platformItem', params: { slug: `${platform.slug}` } }"
     >
         <span class="img-container">
-            <img v-if="platform.image_background" :src="platform.image_background" :alt="`${platform.name} background image`" loading="lazy">
-            <img v-else src="@/assets/images/placeholder-game.jpg" :alt="`${platform.name} background image`" loading="lazy">
+            <img 
+                :src="platform.image_background ? platform.image_background : require('@/assets/images/placeholder-game.jpg')" 
+                :alt="`${platform.name} background image`" 
+                loading="lazy"
+            >
         </span>
         <span class="concise-info">
             <span class="title ellipsis-multiply one">{{ platform.name }}</span>

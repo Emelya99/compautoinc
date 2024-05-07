@@ -4,8 +4,11 @@
         :to="{ name: 'app', params: { slug: `${product.slug}` } }"
     >
         <span class="img-container">
-            <img v-if="product.background_image" :src="product.background_image" :alt="product.name" loading="lazy">
-            <img v-else src="@/assets/images/placeholder-game.jpg" :alt="product.name" loading="lazy">
+            <img 
+                :src="product.background_image ? product.background_image : require('@/assets/images/placeholder-game.jpg')" 
+                :alt="product.name" 
+                :loading="billetExtraClass ? 'none' : 'lazy'"
+            >
         </span>
         <span class="concise-info">
             <ul class="platforms_list" v-if="platforms">
