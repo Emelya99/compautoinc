@@ -116,3 +116,30 @@
         padding: 10px;
     }
 }
+
+.info-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: $white-color;
+    &.platform {
+        background: $accent-color;
+    }
+    &.genre {
+        background: #FF5722;
+    }
+    &.tag {
+        background: #2196F3;
+    }
+    @media(max-width: $tablet) {
+        padding: 5px 10px;
+    }
+    @media(max-width: 640px) {
+        padding: 4px 8px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}

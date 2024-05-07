@@ -16,6 +16,9 @@
                     <!-- Top Product Block -->
                     <com-top-product-block v-if="product" :product="product" />
 
+                    <!-- Short Info Block -->
+                    <com-short-info-block v-if="product" :product="product" />
+
                     <!-- Screens Block -->
                     <com-screens-block v-if="product && product.screenshots_count > 2" :slug="slug" />
 
@@ -53,6 +56,7 @@ import ComPopularReviewsBlock from '@/views/appPage/components/popularReviewsBlo
 import ComScreensBlock from '@/views/appPage/components/screensBlock';
 import ComGetButtonsBlock from '@/views/appPage/components/getButtonsBlock';
 import ComCommentsBlock from '@/views/appPage/components/commentsBlock';
+import ComShortInfoBlock from '@/views/appPage/components/shortInfoBlock';
 import ComErrorMessage from "@/components/partials/ErrorMessage";
 
 export default {
@@ -64,6 +68,7 @@ export default {
         ComScreensBlock,
         ComGetButtonsBlock,
         ComCommentsBlock,
+        ComShortInfoBlock,
         ComErrorMessage,
     },
     computed: {
