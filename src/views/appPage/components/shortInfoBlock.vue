@@ -1,6 +1,6 @@
 <template>
     <div class="short-info_block">
-        <div v-if="product.platforms" class="item">
+        <div v-if="product.platforms && product.platforms.length > 0" class="item">
             <com-heading title-content="Platforms" />
             <ul class="short-info_list">
                 <li v-for="platform in product.platforms" :key="platform.platform.id">
@@ -8,7 +8,7 @@
                 </li>
             </ul>
         </div>
-        <div v-if="product.genres" class="item">
+        <div v-if="product.genres && product.genres.length > 0" class="item">
             <com-heading title-content="Genres" />
             <ul class="short-info_list">
                 <li v-for="genre in product.genres" :key="genre.id">
@@ -16,7 +16,7 @@
                 </li>
             </ul>
         </div>
-        <div v-if="product.tags" class="item">
+        <div v-if="product.tags && product.tags.length > 0" class="item">
             <com-heading title-content="Tags" />
             <ul class="short-info_list">
                 <li v-for="tag in product.tags" :key="tag.id">

@@ -110,20 +110,6 @@ export default {
         .title.default {
             font-size: 28px;
         }
-        .app-billet.card1 {
-            .platforms_list {
-                padding: 10px;
-            }
-            .title {
-                left: 10px;
-                bottom: 10px;
-                width: calc(100% - 90px);
-            }
-            .rating-box {
-                right: 10px;
-                bottom: 10px;
-            }
-        }
     }
 }
 </style>

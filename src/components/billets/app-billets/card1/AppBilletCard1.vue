@@ -53,6 +53,25 @@ export default {
 <style scoped lang="scss">
 @import "@/styles/variables.scss";
 
+.sidebar_block {
+    @media(min-width: 1200px) {
+        .app-billet.card1 {
+            .platforms_list {
+                padding: 10px;
+            }
+            .title {
+                left: 10px;
+                bottom: 10px;
+                width: calc(100% - 90px);
+            }
+            .rating-box {
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    }
+}
+
 .app-billet.card1 {
     position: relative;
     display: flex;
