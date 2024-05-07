@@ -10,6 +10,7 @@
         </section>
 
         <com-products-block-container 
+            v-if="singlePlatformData"
             :is-loading="bestGamesIsLoading" 
             :products-data="bestGamesData"
             :error="bestGamesError" 

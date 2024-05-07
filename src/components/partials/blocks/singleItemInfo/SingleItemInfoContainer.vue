@@ -1,11 +1,13 @@
 <template>
     <div>
         <com-single-item-info-skeleton v-if="singleItemIsLoading" />
+
+        <com-error-message v-if="singleItemError" :error-message="singleItemError" />
+
         <com-single-item-info 
             v-if="singleItemData" 
             :singleItemData="singleItemData"
         />
-        <com-error-message v-if="singleItemError" :error-message="singleItemError" />
     </div>
 </template>
 

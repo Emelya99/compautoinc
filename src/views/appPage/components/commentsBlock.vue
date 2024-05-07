@@ -177,6 +177,7 @@ export default {
         font-size: 16px;
         line-height: 24px;
         color: $main-color;
+        word-break: break-word;
     }
     .btn-container {
         margin-top: 40px;
@@ -200,7 +201,6 @@ export default {
         .text {
             font-size: 14px;
             line-height: 20px;
-            word-break: break-all;
         }
         .btn-container {
             margin-top: 35px;
