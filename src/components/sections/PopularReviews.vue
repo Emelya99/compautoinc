@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
+import { mapState } from 'vuex';
 import { actionTypes, mutationTypes } from "@/store/modules/products/popularReviews";
 import { countOfBilletsOnDevices } from '@/helpers/utils';
 import ComHeading from "@/components/partials/Heading";

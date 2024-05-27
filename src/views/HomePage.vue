@@ -2,15 +2,18 @@
   <div>
     <com-welcome-reviews />
     <com-latest-reviews />
-    <com-popular-reviews />
-    <com-platforms />
-    <com-most-popular-game />
-    <com-upcoming-reviews/>
-    <com-genres />
+    <com-popular-reviews v-if="visibleSectionIndex > 0" />
+    <com-platforms v-if="visibleSectionIndex > 1" />
+    <com-most-popular-game v-if="visibleSectionIndex > 2" />
+    <com-upcoming-reviews v-if="visibleSectionIndex > 3" />
+    <com-genres v-if="visibleSectionIndex > 4" />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import { mutationTypes } from "@/store/modules/lazy-loading/indexLoader";
+
 import ComWelcomeReviews from "@/components/sections/WelcomeReviews";
 import ComLatestReviews from "@/components/sections/LatestReviews";
 import ComPopularReviews from "@/components/sections/PopularReviews"
@@ -29,6 +32,36 @@ export default {
     ComMostPopularGame,
     ComPopularReviews,
     ComGenres,
+  },
+  computed: {
+    ...mapState({
+      totalSections: state => state.indexLoader.totalSections,
+      visibleSectionIndex: state => state.indexLoader.visibleSectionIndex,
+    }),
+  },
+  mounted() {
+    if (this.visibleSectionIndex < this.totalSections) {
+      window.addEventListener('scroll', this.handleScroll);
+    }
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      const scrollBottom = scrollTop + windowHeight;
+
+      if (scrollBottom >= docHeight - 200) {
+        if (this.visibleSectionIndex >= this.totalSections) {
+          window.removeEventListener('scroll', this.handleScroll);
+        } else {
+          this.$store.commit(mutationTypes.updateVisibleSectionIndex, this.visibleSectionIndex + 1);
+        }
+      }
+    },
   },
 }
 </script>

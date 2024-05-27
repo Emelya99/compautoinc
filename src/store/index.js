@@ -17,6 +17,7 @@ import popularReviewsBlock from "@/store/modules/products/productPage/popularRev
 import screensBlock from "@/store/modules/products/productPage/screensBlock";
 import getButtons from "@/store/modules/products/productPage/getButtons";
 import commentsBlock from "@/store/modules/products/productPage/commentsBlock";
+import indexLoader from '@/store/modules/lazy-loading/indexLoader';
 
 /* Platforms */
 import parentPlatforms from "@/store/modules/platforms/parentPlatforms";
@@ -55,5 +56,6 @@ export default new Vuex.Store({
     singlePlatform,
     genres,
     singleGenre,
+    indexLoader,
   },
 });
