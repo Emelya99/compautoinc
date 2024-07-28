@@ -36,6 +36,7 @@ export default {
   },
   computed: {
     pageName() {
+      console.log('commit 1');
       return this.$route.name;
     }
   },
